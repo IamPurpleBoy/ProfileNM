@@ -1,3 +1,6 @@
+.container-fluid{
+    padding:0%;
+}
 .mat-card{
     border-radius: 32px;
     margin: 10px 10px;
@@ -11,7 +14,7 @@
 
 div#profile-background{
 display: flex;
-z-index: 1;
+z-index: 0;
 }
 
 div#profile-background img{
@@ -19,17 +22,27 @@ div#profile-background img{
     border-radius: 32px 32px 0 0;
 }
 
+div#info{
+    padding: 15px;
+    background-color: ghostwhite;
+    border-radius:0 0 32px 32px ;   
+
+}
 .profile-image{
     border-radius: 50%;
     width: 152;
     height: 152;
     margin-top: -30px;
-    margin-left: 90px;
-    z-index: 1;
+    margin-left: 7%;
+    z-index: -1;
 }
+
+
 
 div#info-actions {
     display: flex;
+    vertical-align: bottom;
+    
 }
 
 div#info-contact span{
@@ -50,8 +63,9 @@ div#info-company{
 }
 
 div#info-data{
-    display: flex;
-    justify-content: space-between;
+    display:flexbox;
+    justify-content:baseline;
+    
 }
 
 div#info-data ul#info-details li a{
