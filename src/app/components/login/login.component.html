@@ -1,0 +1,32 @@
+<h3 class="m-5">Iniciar sesion</h3>
+<form  [formGroup]="form" class="m-5">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">e-mail </label>
+      
+      <input type="email" formControlName="email" 
+      [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is valid':!Email?.errors && Email?.touched}"
+      class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div *ngIf="Email?.errors && Email?.touched">
+        <p *ngIf="Email?.hasError('required')" class="text-danger">e-mail es requerido.</p>
+        <p *ngIf="Email?.hasError('email')" class="text-danger">El formato de e-mail debe ser valido.</p>
+
+      </div>
+      <div id="emailHelp" class="form-text"></div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+      <input type="password" formControlName="password" 
+      [ngClass]="{'is-invalid': Password?.errors && Password?.touched, 'is valid':!Password?.errors && Password?.touched}"
+      
+      class="form-control" id="exampleInputPassword1">
+      <div *ngIf="Password?.errors && Password?.touched">
+        <p *ngIf="Password?.hasError('required')" class="text-danger">Contraseña requerido.</p>
+        <p *ngIf="Password?.errors" class="text-danger">La contraseña debe tener mas de 8 digitos.</p>
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Salir</label>
+    </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Iniciar</button>
+  </form>
