@@ -16,12 +16,13 @@
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
       <input type="password" formControlName="password" 
-      [ngClass]="{'is-invalid': Password?.errors && Password?.touched, 'is valid':!Password?.errors && Password?.touched}"
+      [ngClass]="{'is-invalid': Password?.errors && Password?.touched,
+       'is valid':!Password?.errors && Password?.touched}"
       
       class="form-control" id="exampleInputPassword1">
       <div *ngIf="Password?.errors && Password?.touched">
         <p *ngIf="Password?.hasError('required')" class="text-danger">Contraseña requerido.</p>
-        <p *ngIf="Password?.errors" class="text-danger">La contraseña debe tener mas de 8 digitos.</p>
+        <p *ngIf="Password?.errors?. ['minlength']" class="text-danger">La contraseña debe tener mas de 8 digitos.</p>
     </div>
     <div class="mb-3 form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
