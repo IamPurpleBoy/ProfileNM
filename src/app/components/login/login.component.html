@@ -1,7 +1,7 @@
 <h3 class="m-5">Iniciar sesion</h3>
-<form  [formGroup]="form" class="m-5">
+<form  [formGroup]="form" class="m-5" ](ngSubmit)="onEnviar($event)">
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">e-mail </label>
+      <label for="exampleInputEmail1" class="form-label">Email </label>
       
       <input type="email" formControlName="email" 
       [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is valid':!Email?.errors && Email?.touched}"

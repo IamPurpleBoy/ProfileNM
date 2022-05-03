@@ -15,11 +15,13 @@
 div#profile-background{
 display: flex;
 z-index: 0;
+
 }
 
 div#profile-background img{
     width: 100%;
     border-radius: 32px 32px 0 0;
+    
 }
 
 div#info{
@@ -29,14 +31,29 @@ div#info{
 
 }
 .profile-image{
-    border-radius: 50%;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
     width: 152;
     height: 152;
-    margin-top: -30px;
+    margin-top: -100px;
     margin-left: 7%;
     z-index: -1;
+    box-shadow: 10px 5px 5px purple;
+    
 }
 
+div#media-info{
+    align-items:flex-end;
+    margin-block-end: 50%;
+    z-index: 1;
+    margin-top: -65px;
+    margin-right: 5px;
+    box-shadow: -10px 5px 5px  purple;
+    
+ 
+
+
+}
 
 
 div#info-actions {
