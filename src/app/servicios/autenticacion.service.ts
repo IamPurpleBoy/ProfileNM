@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AutenticacionService {
-  url = "http://localhost:8090/pruebajsp"
+  url = "http://localhost:3606/portfolio/persona"
   currentUserSubject: BehaviorSubject<any>;
   constructor(private http: HttpClient) {
     console.log("Servicio corriendo");

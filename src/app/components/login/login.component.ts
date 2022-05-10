@@ -40,7 +40,7 @@ get Password(){
 }
 
 onEnviar(event:Event){
-  event.preventDefault
+  event.preventDefault;
   this.autenticationService.Loguearse(this.form.value).subscribe(data=>{
     console.log("DATA" + JSON.stringify(data));
     this.ruta.navigate(['/portfolio']);
