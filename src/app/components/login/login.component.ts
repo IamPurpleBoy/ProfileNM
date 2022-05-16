@@ -13,15 +13,12 @@ form:FormGroup;
   constructor(private formBuilder: FormBuilder, private autenticationService: AutenticacionService, private ruta:Router) { 
   this.form = this.formBuilder.group(
     {
+      //id: [''],
+      //nombre: [''],
+      //apellido:[''] ,
       email: ['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.minLength(8)]],
-      deviceInfo:this.formBuilder.group  ({
-        deviceId: [""],
-        deviceType: ["DEVICE_TYPE_ANDROID"],
-        notificationToken: [""] 
-      }
-
-      )
+     
       
     }
 
@@ -29,10 +26,15 @@ form:FormGroup;
 }
 
 ngOnInit(): void {
+  this.form=this.formBuilder.group({
+    email:[''],
+    password: [''],
+  });
 }
 
 get Email(){
   return this.form.get('email');
+  
 }
 
 get Password(){
@@ -40,6 +42,7 @@ get Password(){
 }
 
 onEnviar(event:Event){
+  console.log(this.form.value);
   event.preventDefault;
   this.autenticationService.Loguearse(this.form.value).subscribe(data=>{
     console.log("DATA" + JSON.stringify(data));

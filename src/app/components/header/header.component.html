@@ -1,5 +1,5 @@
-<header>
-    <div class="container-fluid">
+
+<div class="container-fluid">
         <div class="card mat-card" id="first-card">
 
             <div id="profile-background"><img src="../../../assets/background2.jpg" alt="background"
@@ -21,7 +21,8 @@
 
                                 <a class="btn btn-primary" href="https://www.facebook.com/Nicolas.Emanuel.Martin">
                                     <i class="fab fa-facebook"></i></a>
-                                <a class="btn btn-primary" href="https://www.linkedin.com/in/nicolas-emanuel-martin-0983a144/">
+                                <a class="btn btn-primary"
+                                    href="https://www.linkedin.com/in/nicolas-emanuel-martin-0983a144/">
                                     <i class="fab fa-linkedin"></i></a>
                                 <a class="btn btn-dark" href="https://github.com/IamPurpleBoy">
                                     <i class="fab fa-github-square"></i></a>
@@ -38,12 +39,29 @@
 
                     <div class="row">
                         <div class="col-xs-6  col-sm-5 col-md-4 col-lg-4 ">
-                            <h2>Nicolas E. Martin</h2>
-                            <div id="info-company">Web Full Stack Developer</div>
-                            <div id="info-contact">
-                                <span>Cordoba, Argentina</span>
-                                <p><span><a href="#">Informacion de contacto</a></span></p>
-
+                            <div *ngIf="persona">
+                                <h2>{{persona.nombre}} {{persona.apellido}}</h2>
+                                <div id="info-company">Web Full Stack Developer</div>
+                                <div id="info-contact">
+                                    <span>Cordoba, Argentina</span>
+                                    <div class="container">
+                                       <a href="#contacto" class="btn btn-light btn-sm"
+                                                    data-toggle="modal">Informacion de contacto</a>
+                                        <div class="modal fade" id="contacto">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <!--header de la ventana-->
+                                                    <div class="modal-header">
+                                                    <h2 class="modal-title">Telefono</h2>
+                                                    <!--h3>{{persona.telefono}}</h3>
+                                                    <h2 class="modal-title">e-mail</h2>
+                                                    <h3>{{persona.email}}</h3-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -76,4 +94,3 @@
             </div>
         </div>
     </div>
-</header>

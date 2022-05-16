@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AutenticacionService {
-  url = "http://localhost:3606/portfolio/persona"
+  url = "http://localhost:8080/ver/personaPost  "
   currentUserSubject: BehaviorSubject<any>;
   constructor(private http: HttpClient) {
     console.log("Servicio corriendo");
@@ -19,7 +19,7 @@ export class AutenticacionService {
       sessionStorage.setItem('currentUser', JSON.stringify(data));
       this.currentUserSubject.next(data);
       return data;
-    }))
+    }))//aca se modifico busqueda por metodo post(this.url,credenciales).pipe(map(data =>{... falta ver TOKEN
   }
 
   get UsuarioAutenticado(){
