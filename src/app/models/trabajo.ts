@@ -1,4 +1,4 @@
-export interface Persona{
+export interface Trabajo{
     id:number;
     empresa:string;
     cargo:string;
