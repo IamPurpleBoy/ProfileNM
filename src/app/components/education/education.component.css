@@ -4,3 +4,11 @@
     padding: 20px;
     border-color: blueviolet;
 }
+.btn-primary{
+    color:white;
+    background-color: transparent;
+    border-radius:100%;
+    border-color: blueviolet;
+    padding-right:  2%;
+    
+}

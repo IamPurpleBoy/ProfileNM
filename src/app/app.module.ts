@@ -15,6 +15,7 @@ import { PortfolioService } from './servicios/portfolio.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './servicios/interceptor.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { InterceptorService } from './servicios/interceptor.service';
     FooterComponent,
     LoginComponent,
     PortfolioComponent,
+  
    
   ],
   imports: [

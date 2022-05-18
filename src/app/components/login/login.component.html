@@ -5,7 +5,8 @@
         <label for="exampleInputEmail1" class="form-label">Email </label>
         
         <input type="email" formControlName="email" 
-        [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is valid':!Email?.errors && Email?.touched}"
+        [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 
+        'is valid':!Email?.errors && Email?.touched}"
         class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         <div *ngIf="Email?.errors && Email?.touched">
           <p *ngIf="Email?.hasError('required')" class="text-danger">e-mail es requerido.</p>
