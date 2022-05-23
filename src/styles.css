@@ -100,3 +100,12 @@ div#info-data ul#info-details li a img{
  ul.items-list li div.data-container{
      flex-grow: 1;
  }
+
+.btn-warning{
+    color:white;
+    background-color: transparent;
+    border-radius:100%;
+    border-color: blueviolet;
+    padding-right:  2%;
+    
+}

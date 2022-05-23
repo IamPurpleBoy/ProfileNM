@@ -26,7 +26,7 @@ constructor(private http: HttpClient) { }
   }
 
   public updateTrabajo(trabajo: Trabajo):Observable<Trabajo>{
-    return this.http.put<Trabajo>(`${this.apiServerUrl}trabajos/edit/{id}`, trabajo);
+    return this.http.put<Trabajo>(`${this.apiServerUrl}trabajos/edit/2`, trabajo);
   
 }
 

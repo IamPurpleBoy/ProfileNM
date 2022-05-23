@@ -1,25 +1,273 @@
-<div class="card mat-card" id="first-card" >
-    <div class="container">
-    <div class="row align-items" *ngFor="let educacion of educaciones">
+<div class="card mat-card" id="first-card">
+    <!--Modal Button-->
+    <div>
+        <div>
+            <div class="text-center">
+                <button type="button" class="btn btn-light" (click)="onOpenModal('add')">
+                    <a class="nav-link" style="color:black">
+                        Crear nueva <span class="sr-only">(current)</span>
+                    </a>
+                </button>
+            </div>
+        </div>
 
-   
-    <ul id="info-details">
-        
-        <li>
-            <h3>{{educacion.institucion}} </h3>
-            <p>{{educacion.titulo}}<span>({{educacion.estado}} en {{educacion.anoFin}})</span></p>
-            <p>{{educacion.descripcion}}</p>
-            <p ><span>{{educacion.modalidad}}</span></p>
-        </li>   
-    <a 
-        class ="btn btn-primary tooltips"
-        data-placement="bottom"
-        data-toogle="tooltip"
-        data-original-title="Editar">
-        <i class="fa fa-pencil-square-o">        
-        </i>
-    </a>
-    </ul>
-</div>
-</div>
+
+    <div class="container">
+
+            <div class="row align-items" *ngFor="let educacion of educaciones">
+
+                <ul id="info-details">
+
+                    <li>
+                        <h3>{{educacion.institucion}} </h3>
+                        <p>{{educacion.titulo}}<span>({{educacion.estado}} en {{educacion.anoFin}})</span></p>
+                        <p>{{educacion.descripcion}}</p>
+                        <p><span>{{educacion.modalidad}}</span></p>
+                    </li>
+                    <a (click)="onOpenModal('edit', educacion)" class="btn btn-warning tooltips" data-placement="bottom"
+                        data-toogle="tooltip" data-original-title="Editar">
+                        <i class="fa fa-pencil-square-o"></i>
+                    </a>
+                    <a (click)="onOpenModal('delete', educacion)" class="btn btn-warning tooltips"
+                        data-placement="bottom" data-toogle="tooltip" data-original-title="Borrar">
+                        <i class="fa fa-trash">
+                        </i>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+<!--Modal-->
+    <div class="modal fade" id="addEducacionModal" tabindex="-1" role="dialog" aria-labelledby="addEducacionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="addEducacionModalLabel">Añadir Educacion</h3>
+                    <button 
+                    type="button" 
+                    class="close" 
+                    data-dismiss="modal" 
+                    aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form #addForm="ngForm" (ngSubmit)="onAddEducacion(addForm)">
+                        <div class="form-group">
+                            <label for="institucion">Institucion</label>
+                            <input type="text" 
+                            ngModel 
+                            name="institucion" 
+                            class="form-control" 
+                            id="institucion"
+                            placeholder="Institucion" 
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="titulo">Titulo</label>
+                            <input type="text" 
+                            ngModel 
+                            name="titulo" 
+                            class="form-control" 
+                            id="titulo"
+                            placeholder="Titulo" 
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <input type="text" 
+                            ngModel 
+                            name="estado" 
+                            class="form-control" 
+                            id="estado"
+                            placeholder="Estado" 
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="anoInicio">Año Inicio</label>
+                            <input type="text" 
+                            ngModel 
+                            name="anoInicio" 
+                            class="form-control" 
+                            id="anoInicio"
+                            placeholder="anoInicio" 
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="anoFin">Año Fin</label>
+                            <input type="text" 
+                            ngModel 
+                            name="anoFin" 
+                            class="form-control" 
+                            id="anoFin"
+                            placeholder="anoFin" 
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modalidad">Modalidad</label>
+                            <input type="text" 
+                            ngModel 
+                            name="modalidad" 
+                            class="form-control" 
+                            id="modalidad"
+                            placeholder="Modalidad" 
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Descripcion</label>
+                            <input type="text" 
+                            ngModel 
+                            name="descripcion" 
+                            class="form-control" 
+                            id="descripcion"
+                            placeholder="Descripcion" 
+                            required>
+                        </div>
+                       
+                        <div class="modal-footer">
+                            <button 
+                            type="button" 
+                            id="add-educacion-form" 
+                            class="btn btn-secondary"
+                            data-dismiss="modal">
+                            Cerrar
+                            </button>
+
+                            <button 
+                            [disabled]="addForm.invalid" 
+                            type="submit" 
+                            id="add-educacion-form"
+                            class="btn btn-primary">
+                                Añadir cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div
+        class="modal fade" 
+        id="editaEducacionModal" 
+        tabindex="-1" 
+        role="dialog" 
+        aria-labelledby="editarEducacionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="editarEducacionModalLabel">Editar Educacion  </h3>
+                    <button 
+                    type="button" 
+                    class="close" 
+                    data-dismiss="modal" 
+                    aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form #editForm="ngForm">
+                        <div class="form-group">
+                            <label for="institucion">Institucion</label>
+                            <input type="text" 
+                            ngModel 
+                            name="institucion" 
+                            class="form-control" 
+                            id="institucion"
+                            placeholder="Institucion" 
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="titulo">Titulo</label>
+                            <input type="text" 
+                            ngModel 
+                            name="titulo" 
+                            class="form-control" 
+                            id="titulo"
+                            placeholder="Titulo" 
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <input type="text" 
+                            ngModel 
+                            name="estado" 
+                            class="form-control" 
+                            id="estado"
+                            placeholder="Estado" 
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="anoInicio">Año Inicio</label>
+                            <input type="text" 
+                            ngModel 
+                            name="anoInicio" 
+                            class="form-control" 
+                            id="anoInicio"
+                            placeholder="anoInicio" 
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="anoFin">Año Fin</label>
+                            <input type="text" 
+                            ngModel 
+                            name="anoFin" 
+                            class="form-control" 
+                            id="anoFin"
+                            placeholder="anoFin" 
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modalidad">Modalidad</label>
+                            <input type="text" 
+                            ngModel 
+                            name="modalidad" 
+                            class="form-control" 
+                            id="modalidad"
+                            placeholder="Modalidad" 
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Descripcion</label>
+                            <input type="text" 
+                            ngModel 
+                            name="descripcion" 
+                            class="form-control" 
+                            id="descripcion"
+                            placeholder="Descripcion" 
+                            required>
+                        </div>
+                       
+                        <div class="modal-footer">
+                            <button 
+                            type="button" 
+                            id="edit-educacion-form" 
+                            class="btn btn-secondary"
+                            data-dismiss="modal">
+                            Cerrar
+                            </button>
+
+                            <button 
+                            [disabled]="addForm.invalid" 
+                            type="submit" 
+                            id="edit-educacion-form"
+                            class="btn btn-primary">
+                                Añadir cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
 </div>

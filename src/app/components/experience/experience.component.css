@@ -2,5 +2,16 @@
     border-radius: 32px;
     margin: 10px 10px;
     padding: 20px;
+    
     border-color: blueviolet;
 }
+
+.btn-warning{
+    color:white;
+    background-color: transparent;
+    border-radius:100%;
+    border-color: blueviolet;
+    padding-right:  2%;
+    
+}
+

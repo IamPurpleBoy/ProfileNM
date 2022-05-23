@@ -10,10 +10,12 @@ import { EducationComponent } from './components/education/education.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PortfolioService } from './servicios/portfolio.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './servicios/interceptor.service';
+import { SkillsnlangComponent } from './components/skillsnlang/skillsnlang.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { InterceptorService } from './servicios/interceptor.service';
     FooterComponent,
     LoginComponent,
     PortfolioComponent,
+    SkillsnlangComponent,
+    ProjectsComponent,
   
    
   ],
@@ -33,7 +37,8 @@ import { InterceptorService } from './servicios/interceptor.service';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [PortfolioService,
   {provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true},

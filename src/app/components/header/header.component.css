@@ -35,18 +35,34 @@ div#info{
     border-top-right-radius: 100%;
     width: 152;
     height: 152;
-    margin-top: -100px;
+    margin-top:-65px;
     margin-left: 7%;
     z-index: -1;
     box-shadow: 10px 5px 5px purple;
     
 }
 
+.ap-logo{
+  
+    margin-top: -150px;
+    margin-left: 1%;
+    z-index: -1;
+   
+    
+}
+div#ap-logo{
+    align-items:flex-end;
+    background-color: ghostwhite;
+    z-index: 0;
+   
+    margin-right: 5px;
+    
+}
 div#media-info{
     align-items:flex-end;
     margin-block-end: 50%;
     z-index: 1;
-    margin-top: -65px;
+    margin-top: -85px;
     margin-right: 5px;
     box-shadow: -10px 5px 5px  purple;
     
@@ -77,8 +93,16 @@ div#info-company{
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 1.25;
+    align-content: center;
 }
-
+.btn-warning{
+    color:white;
+    background-color: transparent;
+    border-radius:100%;
+    border-color: blueviolet;
+    padding-right:  2%;
+    
+}
 div#info-data{
     display:flexbox;
     justify-content:baseline;
