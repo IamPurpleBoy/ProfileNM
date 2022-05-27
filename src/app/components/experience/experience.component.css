@@ -1,9 +1,10 @@
-.mat-card {
+
+.mat-card{
     border-radius: 32px;
     margin: 10px 10px;
     padding: 20px;
-    
-    border-color: blueviolet;
+    border-color: rgba(182, 50, 235, 0.781);
+    box-shadow: -5px 5px 10px #7a2576;
 }
 
 .btn-warning{

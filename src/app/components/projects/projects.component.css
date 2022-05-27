@@ -1,0 +1,18 @@
+.container-fluid{
+    padding:0%;
+}
+.mat-card{
+    border-radius: 32px;
+    margin: 10px 10px;
+    padding: 20px;
+    border-color: rgba(182, 50, 235, 0.781);
+    box-shadow: -5px 5px 10px #7a2576;
+}
+.btn-warning{
+    color:white;
+    background-color: transparent;
+    border-radius:100%;
+    border-color: blueviolet;
+    padding-right:  2%;
+    
+}

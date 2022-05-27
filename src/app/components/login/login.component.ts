@@ -13,9 +13,7 @@ form:FormGroup;
   constructor(private formBuilder: FormBuilder, private autenticationService: AutenticacionService, private ruta:Router) { 
   this.form = this.formBuilder.group(
     {
-      //id: [''],
-      //nombre: [''],
-      //apellido:[''] ,
+      
       email: ['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.minLength(8)]],
      

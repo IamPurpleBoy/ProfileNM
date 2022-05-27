@@ -1,1 +1,29 @@
-<p>projects works!</p>
+<div class="container-fluid">
+    <div class="card mat-card" id="first-card">
+        <div class="container">
+
+            <div class="row align-items" *ngFor="let proyecto of proyectos">
+
+                <ul id="info-details">
+
+                    <li>
+                        <h3>{{proyecto.nombre}} </h3>
+                        <p>{{proyecto.anio}}</p>
+                        <p>{{proyecto.descripcion}}</p>
+                        <img src={{proyecto.imagen}} alt="Imagen de proyecto">
+                        
+                    </li>
+                    <a (click)="onOpenModal('edit', proyecto)" class="btn btn-warning tooltips" data-placement="bottom"
+                        data-toogle="tooltip" data-original-title="Editar">
+                        <i class="fa fa-pencil-square-o"></i>
+                    </a>
+                    <a (click)="onOpenModal('delete', proyecto)" class="btn btn-warning tooltips"
+                        data-placement="bottom" data-toogle="tooltip" data-original-title="Borrar">
+                        <i class="fa fa-trash">
+                        </i>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div> 
+    </div>

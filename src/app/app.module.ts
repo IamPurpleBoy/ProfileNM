@@ -14,8 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PortfolioService } from './servicios/portfolio.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './servicios/interceptor.service';
-import { SkillsnlangComponent } from './components/skillsnlang/skillsnlang.component';
+import { SkillsNLangComponent } from './components/skillsnlang/skillsnlang.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
 @NgModule({
@@ -28,8 +29,9 @@ import { ProjectsComponent } from './components/projects/projects.component';
     FooterComponent,
     LoginComponent,
     PortfolioComponent,
-    SkillsnlangComponent,
+    SkillsNLangComponent,
     ProjectsComponent,
+    
   
    
   ],
@@ -39,6 +41,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    NgCircleProgressModule.forRoot({})
   ],
   providers: [PortfolioService,
   {provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true},

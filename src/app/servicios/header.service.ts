@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Persona } from "../models/persona";
 import { Trabajo } from "../models/trabajo";
+import { Educacion } from "../models/educacion";
 
 @Injectable({
     providedIn: 'root'
@@ -22,12 +23,14 @@ constructor(private http: HttpClient) { }
     
   }
   public getTrabajo():Observable<Trabajo>{
-    return this.http.get<Trabajo>(`${this.apiServerUrl}ver/trabajos`);  
+    return this.http.get<Trabajo>(`${this.apiServerUrl}ver/trabajos/2`);  
   }
 
-  public updateTrabajo(trabajo: Trabajo):Observable<Trabajo>{
-    return this.http.put<Trabajo>(`${this.apiServerUrl}trabajos/edit/2`, trabajo);
   
+  public getEducacion():Observable<Educacion>{
+  return this.http.get<Educacion>(`${this.apiServerUrl}ver/educacion/6`);  
 }
+
+
 
 }

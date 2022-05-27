@@ -5,7 +5,8 @@
     border-radius: 32px;
     margin: 10px 10px;
     padding: 20px;
-    border-color: blueviolet;
+    border-color: rgba(182, 50, 235, 0.781);
+    box-shadow: 5px 5px 10px #7a2576;
 }
 
 .mat-card#first-card{
@@ -54,7 +55,6 @@ div#ap-logo{
     align-items:flex-end;
     background-color: ghostwhite;
     z-index: 0;
-   
     margin-right: 5px;
     
 }
@@ -95,6 +95,19 @@ div#info-company{
     line-height: 1.25;
     align-content: center;
 }
+
+div#info-title{
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.25;
+    align-content: center;
+    margin-left: 5px;
+}
+
+div#modal-contact{
+ margin-left: 70px;
+}
+
 .btn-warning{
     color:white;
     background-color: transparent;
@@ -109,23 +122,51 @@ div#info-data{
     
 }
 
-div#info-data ul#info-details li a{
+div#user-name h2{
+    font-size: 2rem;
+   font-weight: 500;
+   align-self: center;
+   vertical-align: baseline;
+
+
+}
+
+div#info-data ul#info-job li a{
     color: black;
     display: flex;
     text-decoration: none;
 
 }
-div#info-data ul#info-details li a h2{
-   font-size: 1rem;
+div#info-data ul#info-job li a h2{
+   font-size: 1.25rem;
    font-weight: 500;
    align-self: center;
    vertical-align: baseline;
 
 }
-div#info-data ul#info-details li a img{
-    width: 15%;
-    height: 15%;
-    margin-right: 8px;
+div#info-data ul#info-edu li a{
+    color: black;
+    display: flex;
+    text-decoration: none;
+
+}
+div#info-data ul#info-edu li a h2{
+   font-size: 1.25rem;
+   font-weight: 500;
+   align-self: center;
+   vertical-align: baseline;
+
+}
+div#info-data ul#info-job li a img{
+    width: 20%;
+    height: 20%;
+    margin-right: 30px;
+ 
+ }
+ div#info-data ul#info-edu li a img{
+    width: 20%;
+    height: 20%;
+    margin-right: 30px;
  
  }
 
