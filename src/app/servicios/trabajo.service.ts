@@ -13,19 +13,19 @@ private apiServerUrl=environment.apiBaseUrl;
 constructor(private http: HttpClient) { }
  
     public getTrabajo():Observable<Trabajo[]>{
-    return this.http.get<Trabajo[]>(`${this.apiServerUrl}ver/trabajos`);  
+    return this.http.get<Trabajo[]>(`${this.apiServerUrl}api/trabajos`);  
   }
 
   public addTrabajo(trabajo:Trabajo):Observable<Trabajo>{
-      return this.http.post<Trabajo>(`${this.apiServerUrl}new/trabajo`, trabajo);
+      return this.http.post<Trabajo>(`${this.apiServerUrl}api/newTrabajo`, trabajo);
     
   }
 
   public updateTrabajo(trabajo: Trabajo):Observable<Trabajo>{
-    return this.http.put<Trabajo>(`${this.apiServerUrl}trabajos/edit/{id}`, trabajo);
+    return this.http.put<Trabajo>(`${this.apiServerUrl}api/trabajos/edit/{id}`, trabajo);
   }
 
   public deleteTrabajo(trabajoId: number):Observable<void>{
-    return this.http.delete<void>(`${this.apiServerUrl}deleteJob/${trabajoId}` );
+    return this.http.delete<void>(`${this.apiServerUrl}api/deleteJob/${trabajoId}` );
   }
 }

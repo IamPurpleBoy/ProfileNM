@@ -25,7 +25,6 @@ export class ExperienceComponent implements OnInit {
       this.trabajoService.getTrabajo().subscribe({
         next: (response: Trabajo[]) => {
           this.trabajos = response;
-          console.log(this.trabajos)
         },
         error: (error: HttpErrorResponse) => {
           alert(error.message);

@@ -22,7 +22,6 @@ export class AboutmeComponent implements OnInit {
     this.headerService.getPersona().subscribe({
       next:(response:Persona)=>{
         this.persona=response;
-        console.log(this.persona)
       }, 
       error:(error: HttpErrorResponse)=>{
         alert(error.message);

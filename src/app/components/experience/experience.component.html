@@ -1,6 +1,18 @@
 <div class="card mat-card" id="first-card">
 
+    <div>
+        <div class="text-center">
+            <button type="button" class="btn btn-light" (click)="onOpenModal('add')">
+                <a class="nav-link" style="color:black">
+                    Crear nueva <span class="sr-only">(current)</span>
+                </a>
+            </button>
+        </div>
+    </div>
     <div class="container">
+        <h2>Experiencia Laboral</h2>
+        <br>
+        <br>
         <div class="row align-items" *ngFor="let trabajo of trabajos">
             <ul id="info-details">
                 <li>

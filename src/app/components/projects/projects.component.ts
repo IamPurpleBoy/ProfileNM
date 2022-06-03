@@ -27,7 +27,6 @@ export class ProjectsComponent implements OnInit {
   this.proyectoService.getProyecto().subscribe({
     next: (response:Proyecto[]) => {
       this.proyectos = response;
-      console.log(this.proyectos)
     },
     error: (error: HttpErrorResponse) => {
       alert(error.message);

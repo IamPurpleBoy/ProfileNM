@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
       this.headerService.getPersona().subscribe({
         next:(response:Persona)=>{
           this.persona=response;
-          console.log(this.persona)
         }, 
         error:(error: HttpErrorResponse)=>{
           alert(error.message);
@@ -38,7 +37,6 @@ export class HeaderComponent implements OnInit {
       this.headerService.getTrabajo().subscribe({
         next:(response:Trabajo)=>{
           this.trabajo=response;
-          console.log(this.trabajo)
         }, 
         error:(error: HttpErrorResponse)=>{
           alert(error.message);
@@ -49,7 +47,6 @@ export class HeaderComponent implements OnInit {
       this.headerService.getEducacion().subscribe({
         next:(response:Educacion)=>{
           this.educacion=response;
-          console.log(this.educacion)
         }, 
         error:(error: HttpErrorResponse)=>{
           alert(error.message);

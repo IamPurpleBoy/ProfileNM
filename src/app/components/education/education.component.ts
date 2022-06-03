@@ -27,7 +27,6 @@ export class EducationComponent implements OnInit {
     this.educacionService.getEducacion().subscribe({
       next: (response: Educacion[]) => {
         this.educaciones = response;
-        console.log(this.educaciones)
       },
       error: (error: HttpErrorResponse) => {
         alert(error.message);

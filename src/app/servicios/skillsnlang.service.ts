@@ -14,36 +14,36 @@ private apiServerUrl=environment.apiBaseUrl;
 constructor(private http: HttpClient) { }
  
     public getSkill():Observable<Skill[]>{
-    return this.http.get<Skill[]>(`${this.apiServerUrl}ver/skill`);  
+    return this.http.get<Skill[]>(`${this.apiServerUrl}api/skill`);  
   }
 
   public addSkill(skill:Skill):Observable<Skill>{
-      return this.http.post<Skill>(`${this.apiServerUrl}new/skill`, skill);
+      return this.http.post<Skill>(`${this.apiServerUrl}api/newSkill`, skill);
     
   }
 
   public updateSkill(skill: Skill):Observable<Skill>{
-    return this.http.put<Skill>(`${this.apiServerUrl}skill/edit/{id}`, skill);
+    return this.http.put<Skill>(`${this.apiServerUrl}api/edit/{id}`, skill);
   }
 
   public deleteSkill(skillId: number):Observable<void>{
-    return this.http.delete<void>(`${this.apiServerUrl}deleteSkill/${skillId}` );
+    return this.http.delete<void>(`${this.apiServerUrl}api/deleteSkill/${skillId}` );
   }
 
   public getIdioma():Observable<Idioma[]>{
-    return this.http.get<Idioma[]>(`${this.apiServerUrl}ver/idioma`);  
+    return this.http.get<Idioma[]>(`${this.apiServerUrl}api/idioma`);  
   }
 
   public addIdioma(idioma:Idioma):Observable<Idioma>{
-      return this.http.post<Idioma>(`${this.apiServerUrl}new/idioma`, idioma);
+      return this.http.post<Idioma>(`${this.apiServerUrl}api/newIdioma`, idioma);
     
   }
 
   public updateIdioma(idioma: Idioma):Observable<Idioma>{
-    return this.http.put<Idioma>(`${this.apiServerUrl}idioma/edit/{id}`, idioma);
+    return this.http.put<Idioma>(`${this.apiServerUrl}api/idioma/edit/{id}`, idioma);
   }
 
   public deleteIdioma(idiomaId: number):Observable<void>{
-    return this.http.delete<void>(`${this.apiServerUrl}deleteIdioma/${idiomaId}` );
+    return this.http.delete<void>(`${this.apiServerUrl}api/deleteIdioma/${idiomaId}` );
   }
 }

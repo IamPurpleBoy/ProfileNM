@@ -15,20 +15,20 @@ private apiServerUrl=environment.apiBaseUrl;
 constructor(private http: HttpClient) { }
  
     public getPersona():Observable<Persona>{
-    return this.http.get<Persona>(`${this.apiServerUrl}ver/personas/1`);  
+    return this.http.get<Persona>(`${this.apiServerUrl}api/personas/81`);  
   }
 
   public updatePersona(persona: Persona):Observable<Persona>{
-      return this.http.put<Persona>(`${this.apiServerUrl}/personas/edit/1`, persona);
+      return this.http.put<Persona>(`${this.apiServerUrl}api/personas/edit/81`, persona);
     
   }
   public getTrabajo():Observable<Trabajo>{
-    return this.http.get<Trabajo>(`${this.apiServerUrl}ver/trabajos/2`);  
+    return this.http.get<Trabajo>(`${this.apiServerUrl}api/trabajos/2`);  
   }
 
   
   public getEducacion():Observable<Educacion>{
-  return this.http.get<Educacion>(`${this.apiServerUrl}ver/educacion/6`);  
+  return this.http.get<Educacion>(`${this.apiServerUrl}api/educacion/6`);  
 }
 
 

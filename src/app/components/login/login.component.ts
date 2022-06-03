@@ -15,7 +15,7 @@ form:FormGroup;
     {
       
       email: ['',[Validators.required,Validators.email]],
-      password:['',[Validators.required,Validators.minLength(8)]],
+      password:['',[Validators.required,Validators.minLength(6)]],
      
       
     }
@@ -39,6 +39,8 @@ get Password(){
   return this.form.get('password');
 }
 
+
+
 onEnviar(event:Event){
   console.log(this.form.value);
   event.preventDefault;
@@ -48,4 +50,6 @@ onEnviar(event:Event){
   })
 
 
-}}
+}
+
+}

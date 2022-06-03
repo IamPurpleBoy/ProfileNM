@@ -33,7 +33,6 @@ export class SkillsNLangComponent implements OnInit {
     this.skillsNLangService.getSkill().subscribe({
       next: (response:Skill[]) => {
         this.skills = response;
-        console.log(this.skills)
       },
       error: (error: HttpErrorResponse) => {
         alert(error.message);
@@ -47,7 +46,6 @@ export class SkillsNLangComponent implements OnInit {
     this.skillsNLangService.getIdioma().subscribe({
       next: (response:Idioma[]) => {
         this.idiomas = response;
-        console.log(this.idiomas)
       },
       error: (error: HttpErrorResponse) => {
         alert(error.message);

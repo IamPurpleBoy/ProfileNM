@@ -1,7 +1,18 @@
 <div class="container-fluid">
     <div class="card mat-card" id="first-card">
+        <div>
+            <div class="text-center">
+                <button type="button" class="btn btn-light" (click)="onOpenModal('add')">
+                    <a class="nav-link" style="color:black">
+                        Crear nuevo <span class="sr-only">(current)</span>
+                    </a>
+                </button>
+            </div>
+        </div>
         <div class="container">
-
+            <h2>Proyectos</h2>
+            <br>
+            <br>
             <div class="row align-items" *ngFor="let proyecto of proyectos">
 
                 <ul id="info-details">

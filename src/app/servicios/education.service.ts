@@ -14,19 +14,19 @@ private apiServerUrl=environment.apiBaseUrl;
 constructor(private http: HttpClient) { }
  
     public getEducacion():Observable<Educacion[]>{
-    return this.http.get<Educacion[]>(`${this.apiServerUrl}ver/educacion`);  
+    return this.http.get<Educacion[]>(`${this.apiServerUrl}api/educacion`);  
   }
 
   public addEducacion(educacion: Educacion):Observable<Educacion>{
-      return this.http.post<Educacion>(`${this.apiServerUrl}new/educacion`, educacion);
+      return this.http.post<Educacion>(`${this.apiServerUrl}api/newEducacion`, educacion);
     
   }
 
   public updateEducacion(educacion: Educacion):Observable<Educacion>{
-    return this.http.put<Educacion>(`${this.apiServerUrl}educacion/edit/{id}`, educacion);
+    return this.http.put<Educacion>(`${this.apiServerUrl}api/educacion/edit/{id}`, educacion);
   }
 
   public deleteEducacion(educacionId: number):Observable<void>{
-    return this.http.delete<void>(`${this.apiServerUrl}deleteEdu/${educacionId}` );
+    return this.http.delete<void>(`${this.apiServerUrl}api/deleteEdu/${educacionId}` );
   }
 }
