@@ -79,8 +79,8 @@ export class EducationComponent implements OnInit {
     })
 
   }
-  public onDeleteEducacion(idEdu:number):void {
-    this.educacionService.deleteEducacion(idEdu).subscribe({
+  public onDeleteEducacion(id:number):void {
+    this.educacionService.deleteEducacion(id).subscribe({
  
       next: (response: void) => {
         console.log(response);

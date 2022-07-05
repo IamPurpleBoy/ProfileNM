@@ -1,68 +1,32 @@
 <div class="container-fluid">
     <div class="card mat-card" id="first-card">
-        
-        <div id="skills-card">
-            <h2>Skills</h2>
-            <br>
-            <br>
-            <div class="row">
-                <div class="row align-items" *ngFor="let skill of skills">
-                    
-            
-                <div class="col-2">
-                    <circle-progress [percent]="50" [radius]="50" backgroundColor="#b308e2" [outerStrokeWidth]="4" [showInnerStroke] = false
-                        [innerStrokeWidth]="8" [outerStrokeColor]="'white'" [innerStrokeColor]="'purple'"
-                        [animation]="true" [animationDuration]="1300"></circle-progress>
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-2">
+                <div class="row" id="skills-card">
+                    <h2>Skills</h2>
+                    <br>
+                    <br>
+                    <div class="container">
+                        <div class="col-4" *ngFor="let skill of skills">
+                            <circle-progress [title]="skill.nombre" [percent]="skill.nivel"></circle-progress>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-2">
-                    <circle-progress [percent]="85" [radius]="50 " backgroundColor="#b308e2" [outerStrokeWidth]="4" [showInnerStroke] = false
-                        [innerStrokeWidth]="8" [outerStrokeColor]="'white'" [innerStrokeColor]="'purple'"
-                        [animation]="true" [animationDuration]="1300"></circle-progress>
-                </div>
-                <div class="col-2">
-                    <circle-progress [percent]="85" [radius]="50 " backgroundColor="#b308e2" [outerStrokeWidth]="4" [showInnerStroke] = false
-                        [innerStrokeWidth]="8" [outerStrokeColor]="'white'" [innerStrokeColor]="'purple'"
-                        [animation]="true" [animationDuration]="1300"></circle-progress>
-                </div>
-                <div class="col-2">
-                    <circle-progress [percent]="85" [radius]="50 " backgroundColor="#b308e2" [outerStrokeWidth]="4" [showInnerStroke] = false
-                        [innerStrokeWidth]="8" [outerStrokeColor]="'white'" [innerStrokeColor]="'purple'"
-                        [animation]="true" [animationDuration]="1300"></circle-progress>
-                </div>
-                <div class="col-2">
-                    <circle-progress [percent]="85" [radius]="50 " backgroundColor="#b308e2" [outerStrokeWidth]="4" [showInnerStroke] = false
-                        [innerStrokeWidth]="8" [outerStrokeColor]="'white'" [innerStrokeColor]="'purple'"
-                        [animation]="true" [animationDuration]="1300"></circle-progress>
-                </div>
-                <div class="col-2">
-                    <circle-progress [percent]="85" [radius]="50 " backgroundColor="#b308e2" [outerStrokeWidth]="4" [showInnerStroke] = false
-                        [innerStrokeWidth]="8" [outerStrokeColor]="'white'" [innerStrokeColor]="'purple'"
-                        [animation]="true" [animationDuration]="1300"></circle-progress>
-                </div>  
             </div>
-        </div>
-    </div>
-    <br>
-    <br>
-        <div id="languages-card">
-            <h2>Idiomas</h2>
-            <br>
-            <br>
-            <div class="row" >
-                <div class="col-4">
-                    <circle-progress [percent]="85" [radius]="50 " backgroundColor="#b308e2" [outerStrokeWidth]="4" [showInnerStroke] = false
-                        [innerStrokeWidth]="8" [outerStrokeColor]="'white'" [innerStrokeColor]="'purple'"
-                        [animation]="true" [animationDuration]="1300"></circle-progress>
-                </div>
-                <div class="col-4">
-                    <circle-progress [percent]="85" [radius]="50 " backgroundColor="#b308e2" [outerStrokeWidth]="4" [showInnerStroke] = false
-                        [innerStrokeWidth]="8" [outerStrokeColor]="'white'" [innerStrokeColor]="'purple'"
-                        [animation]="true" [animationDuration]="1300"></circle-progress>
-                </div>
-                <div class="col-4">
-                    <circle-progress [percent]="85" [radius]="50 " backgroundColor="#b308e2" [outerStrokeWidth]="4" [showInnerStroke] = false
-                        [innerStrokeWidth]="8" [outerStrokeColor]="'white'" [innerStrokeColor]="'purple'"
-                        [animation]="true" [animationDuration]="1300"></circle-progress>
+
+            <div class="col-md-auto">
+                Variable width content
+            </div>
+
+            <div class="col col-lg-2">
+                <div class="row" id="languages-card">
+                    <h2>Idiomas</h2>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-4" *ngFor="let idioma of idiomas">
+                            <circle-progress [title]="idioma.nombre" [percent]="idioma.nivel"></circle-progress>
+                    </div>
                 </div>
             </div>
         </div>

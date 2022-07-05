@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
@@ -38,8 +38,6 @@ get Email(){
 get Password(){
   return this.form.get('password');
 }
-
-
 
 onEnviar(event:Event){
   console.log(this.form.value);

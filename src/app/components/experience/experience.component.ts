@@ -64,7 +64,7 @@ export class ExperienceComponent implements OnInit {
       }
     })
   }
-  public onUpdateEducacion(trabajo: Trabajo) {
+  public onUpdateTrabajo(trabajo: Trabajo) {
     this.editaJob = trabajo;
     document.getElementById('add-trabajo-form')?.click();
     this.trabajoService.updateTrabajo(trabajo).subscribe({

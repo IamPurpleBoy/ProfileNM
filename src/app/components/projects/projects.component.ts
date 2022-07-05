@@ -10,7 +10,6 @@ import { ProyectoService } from 'src/app/servicios/proyecto.service';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-
   public proyectos: Proyecto[] = [];
   public editaProy: Proyecto | undefined;
   public borraProy: Proyecto | undefined;
@@ -18,11 +17,12 @@ export class ProjectsComponent implements OnInit {
   constructor(private proyectoService:ProyectoService) { }
 
   ngOnInit(): void {
+
     this.getProyecto();
+
   }
+
   public getProyecto():void{
-
-
 
   this.proyectoService.getProyecto().subscribe({
     next: (response:Proyecto[]) => {

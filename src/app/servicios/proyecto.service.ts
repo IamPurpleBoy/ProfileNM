@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Proyecto } from "../models/proyecto";
 
+
 @Injectable({
     providedIn: 'root'
 })
@@ -22,7 +23,7 @@ constructor(private http: HttpClient) { }
   }
 
   public updateProyecto(proyecto: Proyecto):Observable<Proyecto>{
-    return this.http.put<Proyecto>(`${this.apiServerUrl}api/proyecto/edit/{id}`, proyecto);
+    return this.http.put<Proyecto>(`${this.apiServerUrl}api/proyecto/edit/${proyecto.id}`, proyecto);
   }
 
   public deleteProy(proyectoId: number):Observable<void>{

@@ -7,9 +7,11 @@
 }
 .btn-warning{
     color:white;
-    background-color: transparent;
+    background-color:mediumpurple;
     border-radius:100%;
+    border-inline-end: #7a2576;
     border-color: blueviolet;
-    padding-right:  2%;
+    padding-right:  1%;
     
 }
+

@@ -41,7 +41,21 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    NgCircleProgressModule.forRoot({})
+    NgCircleProgressModule.forRoot({
+      radius:50, 
+      backgroundColor:'#b308e2', 
+      titleColor:'white', 
+      showUnits:false,
+      responsive: true,
+      outerStrokeWidth:4, 
+      showInnerStroke: false,
+      innerStrokeWidth:8,
+      outerStrokeColor:'white',
+      innerStrokeColor:'purple',
+      animation:true, 
+      animationDuration:1300,
+
+    })
   ],
   providers: [PortfolioService,
   {provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true},

@@ -1,13 +1,7 @@
 <div class="card mat-card" id="first-card">
     <!--Modal Button-->
-
-
     <div class="text-center">
-        <button type="button" class="btn btn-light" (click)="onOpenModal('add')">
-            <a class="nav-link" style="color:black">
-                Crear nueva <span class="sr-only">(current)</span>
-            </a>
-        </button>
+        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#crearEduModal" data-whatever="@mdo">Agrear Educacion</button>
     </div>
 
 
@@ -31,90 +25,87 @@
                         <p>{{educacion.titulo}} <span>({{educacion.estado}} en {{educacion.anoFin}})</span></p>
                     </div>
                     <div class="col-12">
-                        <p><span>{{educacion.modalidad}}</span></p>
+                        <p><span>Modalidad: {{educacion.modalidad}}</span></p>
                     </div>
                     <div></div>
 
 
                 </div>
                 <div>
-                    <a (click)="onOpenModal('edit', educacion)" class="btn btn-warning tooltips" data-placement="bottom"
-                        data-toogle="tooltip" data-original-title="Editar">
-                        <i class="fa fa-pencil-square-o"></i>
-                    </a>
-                    <a (click)="onOpenModal('delete', educacion)" class="btn btn-warning tooltips"
-                        data-placement="bottom" data-toogle="tooltip" data-original-title="Borrar">
-                        <i class="fa fa-trash"></i>
-                    </a>
+                    <button type="button" (click)="onOpenModal('edit', educacion)" class="btn btn-warning tooltips" data-toggle="modal" data-target="#editarEduModal" data-whatever="@fat"><i class="fa fa-pencil-square-o"></i></button>
+                    <button type="button" (click)="onOpenModal('delete', educacion)" class="btn btn-warning tooltips" data-toggle="modal" data-target="#borrarEduModal" data-whatever="@getbootstrap"><i class="fa fa-trash"></i></button>
+                    
                 </div>
             </div>
         </div>
-    </div>
-
-
-
-    <!--Modal-->
-    <div class="modal fade" id="addEducacionModal" tabindex="-1" role="dialog" aria-labelledby="addEducacionModalLabel"
+    
+        
+       
+       <!--Modal Nueva Educacion-->
+        <div class="modal fade" id="crearEduModal" tabindex="-1" role="dialog" aria-labelledby="crearEduModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+          <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="addEducacionModalLabel">Añadir Educacion</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form #addForm="ngForm" (ngSubmit)="onAddEducacion(addForm)">
-                        <div class="form-group">
-                            <label for="institucion">Institucion</label>
-                            <input type="text" ngModel name="institucion" class="form-control" id="institucion"
-                                placeholder="Institucion" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="titulo">Titulo</label>
-                            <input type="text" ngModel name="titulo" class="form-control" id="titulo"
-                                placeholder="Titulo" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="estado">Estado</label>
-                            <input type="text" ngModel name="estado" class="form-control" id="estado"
-                                placeholder="Estado" required />
-                        </div>
+              <div class="modal-header">
+                <h5 class="modal-title" id="crearEduModal">Agregar Nueva Educacion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form #addForm="ngForm" (ngSubmit)="onAddEducacion(addForm)">
+                    <div class="form-group">
+                        <label for="institucion">Institucion</label>
+                        <input type="text" ngModel name="institucion" class="form-control" id="institucion"
+                            placeholder="Institucion" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="titulo">Titulo</label>
+                        <input type="text" ngModel name="titulo" class="form-control" id="titulo"
+                            placeholder="Titulo" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <input type="text" ngModel name="estado" class="form-control" id="estado"
+                            placeholder="Estado" required />
+                    </div>
 
-                        <div class="form-group">
-                            <label for="anoFin">Año Fin</label>
-                            <input type="text" ngModel name="anoFin" class="form-control" id="anoFin"
-                                placeholder="anoFin" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="descripcion">Descripcion</label>
-                            <input type="text" ngModel name="descripcion" class="form-control" id="descripcion"
-                                placeholder="Descripcion" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="modalidad">Modalidad</label>
-                            <input type="text" ngModel name="modalidad" class="form-control" id="modalidad"
-                                placeholder="Modalidad" required />
-                        </div>
+                    <div class="form-group">
+                        <label for="anoFin">Año Fin</label>
+                        <input type="text" ngModel name="anoFin" class="form-control" id="anoFin"
+                            placeholder="anoFin" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripcion</label>
+                        <input type="text" ngModel name="descripcion" class="form-control" id="descripcion"
+                            placeholder="Descripcion" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="modalidad">Modalidad</label>
+                        <input type="text" ngModel name="modalidad" class="form-control" id="modalidad"
+                            placeholder="Modalidad" required />
+                    </div>
 
 
-                        <div class="modal-footer">
-                            <button type="button" id="add-educacion-form" class="btn btn-secondary"
-                                data-dismiss="modal">
-                                Cerrar
-                            </button>
+                    <div class="modal-footer">
+                        <button type="button" id="add-educacion-form" class="btn btn-secondary"
+                            data-dismiss="modal">
+                            Cerrar
+                        </button>
 
-                            <button [disabled]="addForm.invalid" type="submit" id="add-educacion-form"
-                                class="btn btn-primary">
-                                Añadir cambios
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                        <button [disabled]="addForm.invalid" type="submit" id="add-educacion-form"
+                            class="btn btn-primary">
+                            Añadir cambios
+                        </button>
+                    </div>
+                </form>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+
+
+    
 
 
 
@@ -123,7 +114,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title" id="editarEducacionModalLabel">
+                    <h3 class="modal-title" id="editarEduModalLabel">
                         Editar Educacion{{editaEdu?.institucion}} </h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -220,3 +211,4 @@
             </div>
         </div>
     </div>
+</div>
