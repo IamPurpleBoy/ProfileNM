@@ -3,9 +3,9 @@ import { StringMapWithRename } from "@angular/compiler/src/compiler_facade_inter
 export interface Educacion{
     idEdu:number;
     institucion:string;
+    logo:string;
     titulo:string;
     estado:string;
-    anoInicio:number;
     anoFin:number;
     modalidad:string;
     descripcion:string;

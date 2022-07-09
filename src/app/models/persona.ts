@@ -4,5 +4,6 @@ export interface Persona{
     apellido:string;
     telefono:string;
     email:string;
+    aboutMe: string;
     password:string;
 }
