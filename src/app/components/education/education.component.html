@@ -93,6 +93,12 @@
                                 placeholder="Modalidad" required />
                         </div>
 
+                        <div class="form-group">
+                            <label for="logo">Logo</label>
+                            <input type="text" ngModel="logo" name="logo" class="form-control"
+                                id="logo" placeholder="logo" required/>
+                        </div>
+
 
                         <div class="modal-footer">
                             <button type="button" id="add-educacion-form" class="btn btn-secondary"
@@ -163,6 +169,12 @@
                             <label for="modalidad">Modalidad</label>
                             <input type="text" ngModel="{{editaEdu?.modalidad}}" name="modalidad" class="form-control"
                                 id="modalidad" placeholder="Modalidad" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="logo">Logo</label>
+                            <input type="text" ngModel="{{editaEdu?.logo}}" name="logo" class="form-control"
+                                id="logo" placeholder="Logo" />
                         </div>
 
 
