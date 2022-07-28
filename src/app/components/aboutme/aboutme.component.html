@@ -1,12 +1,23 @@
 <div class="container-fluid">
     <div class="card mat-card" id="first-card">
         <div id="info-data">
-            <div class="row">
-            <h3>Acerca de</h3>
-            <p>
-                {{persona?.aboutMe}}
-            </p>
-        </div>
+            <div id="acerca-de">
+                <div class="row" >
+                <h3>Acerca de</h3>
+                </div>
+                <br>
+                <hr>
+                <p>
+                    {{persona?.aboutMe}}
+                </p>
+            </div>
+            <div class="col-xs-2 col-md-4 col-lg-2 d-flex justify-content-end">
+
+                <button id="btn-collapsable" type="button" (click)="onOpenModal('edit', persona)"
+                    class="btn btn-warning tooltips collapse in" data-toggle="modal" data-target="#editarPersonaModal"
+                    data-whatever="@fat"><i class="fa fa-pencil-square-o"></i></button>
+
+            </div>
         </div>
     </div>
 </div>

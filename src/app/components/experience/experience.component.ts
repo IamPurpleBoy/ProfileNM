@@ -10,28 +10,27 @@ import { TrabajoService } from 'src/app/servicios/trabajo.service';
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent implements OnInit {
- 
   public trabajos: Trabajo[] = [];
   public editaJob: Trabajo | undefined;
   public borraJob: Trabajo | undefined;
 
-  constructor(private trabajoService:TrabajoService) { }
+  constructor(private trabajoService: TrabajoService) { }
 
   ngOnInit(): void {
     this.getTrabajo();
   }
-    public getTrabajo(): void {
 
-      this.trabajoService.getTrabajo().subscribe({
-        next: (response: Trabajo[]) => {
-          this.trabajos = response;
-        },
-        error: (error: HttpErrorResponse) => {
-          alert(error.message);
-        }
-      })
-    }
-  
+  public getTrabajo(): void {
+    this.trabajoService.getTrabajo().subscribe({
+      next: (response: Trabajo[]) => {
+        this.trabajos = response;
+      },
+      error: (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    })
+  }
+
   public onOpenModal(mode: String, trabajo?: Trabajo): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
@@ -49,6 +48,7 @@ export class ExperienceComponent implements OnInit {
     container?.appendChild(button);
     button.click();
   }
+
   public onAddTrabajo(addForm: NgForm) {
     document.getElementById('add-trabajo-form')?.click();
     this.trabajoService.addTrabajo(addForm.value).subscribe({
@@ -64,6 +64,7 @@ export class ExperienceComponent implements OnInit {
       }
     })
   }
+
   public onUpdateTrabajo(trabajo: Trabajo) {
     this.editaJob = trabajo;
     document.getElementById('add-trabajo-form')?.click();
@@ -76,11 +77,10 @@ export class ExperienceComponent implements OnInit {
         alert(error.message);
       }
     })
-
   }
-  public onDeleteTrabajo(id:number):void {
+
+  public onDeleteTrabajo(id: number): void {
     this.trabajoService.deleteTrabajo(id).subscribe({
- 
       next: (response: void) => {
         console.log(response);
         this.getTrabajo();
@@ -89,8 +89,8 @@ export class ExperienceComponent implements OnInit {
         alert(error.message);
       }
     })
-
   }
+
 }
 
 

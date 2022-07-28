@@ -5,19 +5,30 @@
     border-color: blueviolet;
     box-shadow: 5px 5px 10px #7a2576;
 }
-.btn-warning{
-    color:white;
-    background-color:mediumpurple;
-    border-radius:100%;
+
+.btn-warning {
+    color: white;
+    background-color: mediumpurple;
+    border-radius: 100%;
     border-inline-end: #7a2576;
     border-color: blueviolet;
     margin-top: 15%;
-    
-    
 }
-div#img img{
+
+.btn-warning:not(:disabled):not(.disabled).active,
+.btn-warning:not(:disabled):not(.disabled):active {
+    background-color: rgb(144, 144, 204);
+}
+
+div#img img {
     width: 90%;
     height: 90%;
-    
- 
- }
+}
+
+.row{
+    margin: 10px;
+}
+
+.hr{
+    color: black;
+}

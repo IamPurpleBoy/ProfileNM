@@ -19,6 +19,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,8 +33,6 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     PortfolioComponent,
     SkillsNLangComponent,
     ProjectsComponent,
-    
-  
    
   ],
   imports: [

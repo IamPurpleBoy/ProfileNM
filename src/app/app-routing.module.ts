@@ -5,9 +5,9 @@ import { LoginComponent } from './components/login/login.component';
 import { GuardsGuard } from './servicios/guards.guard';
 
 const routes: Routes = [
-  {path: "portfolio",component:PortfolioComponent, canActivate:[GuardsGuard]},
+  {path: "portfolio",component:PortfolioComponent},
   {path: "login",component:LoginComponent},
-  {path: "", redirectTo:"login" , pathMatch:"full"},
+  {path: "", redirectTo:"portfolio" , pathMatch:"full"},
 
 ];
 

@@ -23,7 +23,7 @@ constructor(private http: HttpClient) { }
   }
 
   public updateProyecto(proyecto: Proyecto):Observable<Proyecto>{
-    return this.http.put<Proyecto>(`${this.apiServerUrl}api/proyecto/edit/${proyecto.id}`, proyecto);
+    return this.http.put<Proyecto>(`${this.apiServerUrl}api/proyecto/edit`, proyecto);
   }
 
   public deleteProy(proyectoId: number):Observable<void>{

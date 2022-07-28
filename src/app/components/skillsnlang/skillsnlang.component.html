@@ -1,34 +1,350 @@
 <div class="container-fluid">
     <div class="card mat-card" id="first-card">
-        <div class="row justify-content-md-center">
-            <div class="col col-lg-2">
+        <div class="row justify-content-center">
+
+            <div class="col-5">
                 <div class="row" id="skills-card">
-                    <h2>Skills</h2>
-                    <br>
-                    <br>
-                    <div class="container">
-                        <div class="col-4" *ngFor="let skill of skills">
-                            <circle-progress [title]="skill.nombre" [percent]="skill.nivel"></circle-progress>
+                    <div class="text-center">
+
+                        <button id="btn-collapsable" type="button" class="btn btn-light collapse in" data-toggle="modal"
+                            data-target="#crearSkillModal" data-whatever="@mdo">Agregar Skill</button>
+
+                    </div>
+
+                    <div class="main-container">
+
+                        <div class="text-center">
+                            <div class="row">
+                                <h2>Skills</h2>
+                            </div>
+                            <br>
+                            <br>
+                            <hr>
+                            <div class="container" id="skills">
+                                <div class="col-5" *ngFor="let skill of skills">
+                                    <circle-progress [title]="skill.nombre" [percent]="skill.nivel"></circle-progress>
+                                    <h4>{{skill.nivel}}%</h4>
+
+                                    <div class="col-5 d-flex justify-content-end">
+
+
+                                        <button id="btn-collapsable" type="button"
+                                            (click)="onOpenModalSkill('edit', skill)"
+                                            class="btn btn-warning tooltips collapse in" data-toggle="modal"
+                                            data-target="#editarSkillModal" data-whatever="@fat"><i
+                                                class="fa fa-pencil-square-o"></i></button>
+                                        <button id="btn-collapsable" type="button"
+                                            (click)="onOpenModalSkill('delete', skill)"
+                                            class="btn btn-warning tooltips collapse in" data-toggle="modal"
+                                            data-target="#borrarSkillModal" data-whatever="@getbootstrap"><i
+                                                class="fa fa-trash"></i></button>
+                                        <br><br>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="crearSkillModal" tabindex="-1" role="dialog"
+                        aria-labelledby="crearSkillModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="crearSkillModal">Agregar nuevo Skill</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form #addForm1="ngForm" (ngSubmit)="onAddSkill(addForm1)">
+                                        <div class="form-group">
+                                            <label for="nombre">Nombre</label>
+                                            <input type="text" ngModel name="nombre" class="form-control" id="nombre"
+                                                placeholder="Nombre" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nivel">Nivel</label>
+                                            <input type="text" ngModel name="nivel" class="form-control" id="nivel"
+                                                placeholder="Nivel" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="imagen">Imagen</label>
+                                            <input type="text" ngModel name="imagen" class="form-control" id="imagen"
+                                                placeholder="Imagen" required />
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" id="add-skill-form" class="btn btn-secondary"
+                                                data-dismiss="modal">
+                                                Cerrar
+                                            </button>
+
+                                            <button [disabled]="addForm1.invalid" type="submit" id="add-skill-form"
+                                                class="btn btn-primary">
+                                                Añadir cambios
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <div class="modal fade" id="editarSkillModal" tabindex="-1" role="dialog"
+                        aria-labelledby="editarSkillModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="editarSkillModalLabel">
+                                        Editar Skill {{editaSkill?.nombre}} </h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form #editForm="ngForm">
+                                        <input type="hidden" ngModel="{{editaSkill?.id}}" name="id" class="form-control"
+                                            id="id" placeholder="" />
+                                        <div class="form-group">
+                                            <label for="nombre">Nombre</label>
+                                            <input type="text" ngModel="{{editaSkill?.nombre}}" name="nombre"
+                                                class="form-control" id="nombre" placeholder="Nombre" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nivel">Nivel</label>
+                                            <input type="text" ngModel="{{editaSkill?.nivel}}" name="nivel"
+                                                class="form-control" id="nivel" placeholder="Nivel" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="imagen">Descripcion</label>
+                                            <input type="text" ngModel="{{editaSkill?.imagen}}" name="imagen"
+                                                class="form-control" id="imagen" placeholder="Imagen" />
+                                        </div>
+
+
+                                        <div class="modal-footer">
+                                            <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">
+                                                Cerrar
+                                            </button>
+
+                                            <button (click)="onUpdateSkill(editForm.value)" type="submit"
+                                                class="btn btn-primary">
+                                                Añadir cambios
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="modal fade" id="borrarSkillModal" tabindex="-1" role="dialog"
+                        aria-labelledby="borrarSkillModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-heder">
+                                    <h3 class="modal-title" id="borrarSkillModalLabel">Borrar Skill</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Estas Seguro de borrar {{borraSkill?.nombre}}</p>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No
+                                        </button>
+                                        <button (click)="onDeleteSkill(borraSkill!.id)" class="btn btn-danger"
+                                            data-dismiss="modal">Si
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="skills?.length ==0" class="col-12">
+                        <div class="alert alert-info" role="alert">
+                            <h2 class="alert-heading">No hay skills</h2>
+                            <p>No se encuentra ningun skill cargado!</p>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col d-none d-lg-block">
 
-            <div class="col-md-auto">
-                Variable width content
             </div>
 
-            <div class="col col-lg-2">
+            <div class="col-5">
+
                 <div class="row" id="languages-card">
-                    <h2>Idiomas</h2>
-                    <br>
-                    <br>
-                    <div class="row">
-                        <div class="col-4" *ngFor="let idioma of idiomas">
-                            <circle-progress [title]="idioma.nombre" [percent]="idioma.nivel"></circle-progress>
+                    <div class="text-center">
+
+                        <button id="btn-collapsable" type="button" class="btn btn-light collapse in" data-toggle="modal"
+                            data-target="#crearIdiomaModal" data-whatever="@mdo">Agregar Idioma</button>
+
+                    </div>
+                    <div class="main-container">
+                        <div class="text-center">
+                            <div class="row">
+                                <h2>Idiomas</h2>
+                            </div>
+                            <br>
+                            <br>
+                            <hr>
+                            <div class="container" id="idiomas">
+                                <div class="col-5" *ngFor="let idioma of idiomas">
+                                    <circle-progress [title]="idioma.nombre" [percent]="idioma.nivel"></circle-progress>
+                                    <h4>{{idioma.nivel}}%</h4>
+
+                                    <div class="col-2 d-flex justify-content-end">
+
+                                        <button id="btn-collapsable" type="button"
+                                            (click)="onOpenModalIdioma('edit', idioma)"
+                                            class="btn btn-warning tooltips collapse in" data-toggle="modal"
+                                            data-target="#editarIdiomaModal" data-whatever="@fat"><i
+                                                class="fa fa-pencil-square-o"></i></button>
+                                        <button id="btn-collapsable" type="button"
+                                            (click)="onOpenModalIdioma('delete', idioma)"
+                                            class="btn btn-warning tooltips collapse in" data-toggle="modal"
+                                            data-target="#borrarIdiomaModal" data-whatever="@getbootstrap"><i
+                                                class="fa fa-trash"></i></button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="crearIdiomaModal" tabindex="-1" role="dialog"
+                        aria-labelledby="crearIdiomaModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="crearIdiomaModal">Agregar nuevo Idioma</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form #addForm2="ngForm" (ngSubmit)="onAddIdioma(addForm2)">
+                                        <div class="form-group">
+                                            <label for="nombre">Nombre</label>
+                                            <input type="text" ngModel name="nombre" class="form-control" id="nombre"
+                                                placeholder="Nombre" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nivel">Nivel</label>
+                                            <input type="text" ngModel name="nivel" class="form-control" id="nivel"
+                                                placeholder="Nivel" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="imagen">Imagen</label>
+                                            <input type="text" ngModel name="imagen" class="form-control" id="imagen"
+                                                placeholder="Imagen" />
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" id="add-idioma-form" class="btn btn-secondary"
+                                                data-dismiss="modal">
+                                                Cerrar
+                                            </button>
+
+                                            <button [disabled]="addForm2.invalid" type="submit" id="add-idioma-form"
+                                                class="btn btn-primary">
+                                                Añadir cambios
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="editarIdiomaModal" tabindex="-1" role="dialog"
+                        aria-labelledby="editarIdiomaModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="editarIdiomaModalLabel">
+                                        Editar Idioma {{editaIdioma?.nombre}} </h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form #editForm2="ngForm">
+                                        <input type="hidden" ngModel="{{editaIdioma?.id}}" name="id"
+                                            class="form-control" id="id" placeholder="" />
+                                        <div class="form-group">
+                                            <label for="nombre">Nombre</label>
+                                            <input type="text" ngModel="{{editaIdioma?.nombre}}" name="nombre"
+                                                class="form-control" id="nombre" placeholder="Nombre" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nivel">Nivel</label>
+                                            <input type="text" ngModel="{{editaIdioma?.nivel}}" name="nivel"
+                                                class="form-control" id="nivel" placeholder="Nivel" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="imagen">Descripcion</label>
+                                            <input type="text" ngModel="{{editaIdioma?.imagen}}" name="imagen"
+                                                class="form-control" id="imagen" placeholder="Imagen" />
+                                        </div>
+
+
+                                        <div class="modal-footer">
+                                            <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">
+                                                Cerrar
+                                            </button>
+
+                                            <button (click)="onUpdateIdioma(editForm2.value)" type="submit"
+                                                class="btn btn-primary">
+                                                Añadir cambios
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="modal fade" id="borrarIdiomaModal" tabindex="-1" role="dialog"
+                        aria-labelledby="borrarIdiomaModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="borrarIdiomaModalLabel">Borrar Idioma</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Estas Seguro de borrar {{borraIdioma?.nombre}}</p>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No
+                                        </button>
+                                        <button (click)="onDeleteIdioma(borraIdioma!.id)" class="btn btn-danger"
+                                            data-dismiss="modal">Si
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="idiomas?.length ==0" class="col-12">
+                        <div class="alert alert-info" role="alert">
+                            <h2 class="alert-heading">No hay idiomas</h2>
+                            <p>No se encuentra ningun idioma cargado!</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>

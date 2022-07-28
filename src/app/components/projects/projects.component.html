@@ -1,16 +1,19 @@
 <div class="card mat-card" id="first-card">
 
     <div class="text-center">
-        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#crearProyModal"
-            data-whatever="@mdo">Agrear Educacion</button>
+
+        <button id="btn-collapsable" type="button" class="btn btn-light collapse in" data-toggle="modal"
+            data-target="#crearProyModal" data-whatever="@mdo">Agregar Proyecto</button>
+
     </div>
 
-
-
     <div class="main-container">
-        <h2>Proyectos</h2>
+        <div class="row">
+            <h2>Proyectos</h2>
+        </div>
         <br>
         <br>
+        <hr>
 
         <div *ngFor="let proyecto of proyectos">
             <div class="container">
@@ -25,161 +28,290 @@
                     <div class="col-xs-12 col-md-6">
                         <p>{{proyecto.descripcion}}</p>
                     </div>
-                    <div class="col-12">
-                        <img src={{proyecto.imagen}} alt="Imagen de proyecto">
+
+                    <div class="col-md-4">
+
+                        <ul class="list-inline text-center">
+                            <li data-toggle="modal" [attr.data-target]="'#proyectImageModal' + proyecto.id"
+                                data-target="#myModal"><a href="#myGallery" data-slide-to="0"><img class="img-thumbnail"
+                                        src={{proyecto.imagen1}} alt={{proyecto.id}}><br></a>
+                            </li>
+
+                        </ul>
                     </div>
-                </div>
-                <div>
-                    <button type="button" (click)="onOpenModal('edit', proyecto)" class="btn btn-warning tooltips"
-                        data-toggle="modal" data-target="#editarProyModal" data-whatever="@fat"><i
-                            class="fa fa-pencil-square-o"></i></button>
-                    <button type="button" (click)="onOpenModal('delete', proyecto)" class="btn btn-warning tooltips"
-                        data-toggle="modal" data-target="#borrarProyModal" data-whatever="@getbootstrap"><i
-                            class="fa fa-trash"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Modal Nueva Educacion-->
-    <div class="modal fade" id="crearProyModal" tabindex="-1" role="dialog" aria-labelledby="crearProyModalLabel"
-    aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="crearProyModal">Agregar Nuevo Proyecto</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form #addForm="ngForm" (ngSubmit)="onAddProyecto(addForm)">
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" ngModel name="nombre" class="form-control" id="nombre"
-                        placeholder="Nombre" required />
-                </div>
-                <div class="form-group">
-                    <label for="anio">Año</label>
-                    <input type="text" ngModel name="anio" class="form-control" id="anio"
-                        placeholder="Año" required />
-                </div>
-                <div class="form-group">
-                    <label for="descripcion">Descripcion</label>
-                    <input type="text" ngModel name="descripcion" class="form-control" id="descripcion"
-                        placeholder="Descripcion" required />
-                </div>
+                    <!--Modal Carrusel-->
+                    <div class="modal fade" [attr.id]="'proyectImageModal' + proyecto.id" id="myModal">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="pull-left">
+                                        <h4 class="modal-title" id="proyectImageModal">Galeria de Proyecto</h4>
+                                    </div>
+                                    <button type="button" class="close" data-dismiss="modal" title="Close">
+                                        <span class="glyphicon glyphicon-remove"></span></button>
+                                </div>
+                                <div class="modal-body">
 
-                <div class="form-group">
-                    <label for="imagen">Imagen</label>
-                    <input type="text" ngModel name="imagen" class="form-control" id="imagen"
-                        placeholder="Imagen" required />
-                </div>
-                
-
-
-                <div class="modal-footer">
-                    <button type="button" id="add-proyecto-form" class="btn btn-secondary"
-                        data-dismiss="modal">
-                        Cerrar
-                    </button>
-
-                    <button [disabled]="addForm.invalid" type="submit" id="add-proyecto-form"
-                        class="btn btn-primary">
-                        Añadir cambios
-                    </button>
-                </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+                                    <div id="myGallery" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carouselIndicators" data-slide-to="1" class="active"></li>
+                                            <li data-target="#carouselIndicators" data-slide-to="2"></li>
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img class="d-block w-100" src={{proyecto.imagen1}} alt="First slide">
+                                                <p>{{proyecto.id}}</p>
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src={{proyecto.imagen2}} alt="Second slide">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src={{proyecto.imagen3}} alt="Third slide">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src={{proyecto.imagen4}} alt="Fourth slide">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src={{proyecto.imagen5}} alt="Fifth slide">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src={{proyecto.imagen6}} alt="Sixth slide">
+                                            </div>
+                                        </div>
+                                        <a class="carousel-control-prev" href="#myGallery" role="button"
+                                            data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previo</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#myGallery" role="button"
+                                            data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Siguiente</span>
+                                        </a>
 
 
+                                    </div>
+                                    <div class="modal-footer">
 
-
-
-
-<div class="modal fade" id="editarProyModal" tabindex="-1" role="dialog" aria-labelledby="editarProyModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="editarProyModalLabel">
-                    Editar Proyecto {{editaProy?.nombre}} </h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form #editForm="ngForm">
-                    <input type="hidden" ngModel="{{editaProy?.id}}" name="id" class="form-control" id="id"
-                        placeholder="" />
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" ngModel="{{editaProy?.nombre}}" name="nombre"
-                            class="form-control" id="nombre" placeholder="Nombre" required />
+                                        <button class="btn btn-secondary" type="button"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    <div class="form-group">
-                        <label for="anio">Año</label>
-                        <input type="text" ngModel="{{editaProy?.anio}}" name="anio"
-                            class="form-control" id="anio" placeholder="Año" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="descripcion">Descripcion</label>
-                        <input type="text" ngModel="{{editaProy?.descripcion}}" name="descripcion"
-                            class="form-control" id="descripcion" placeholder="Descripcion" />
-                    </div>
-                    <div class="form-group">
-                        <label for="imagen">Imagen</label>
-                        <input type="text" ngModel="{{editaProy?.imagen}}" name="imagen" 
-                        class="form-control" id="titulo" placeholder="Imagen" />
                     </div>
 
-                    <div class="modal-footer">
-                        <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">
-                            Cerrar
-                        </button>
-
-                        <button (click)="onUpdateProyecto(editForm.value)" type="submit" class="btn btn-primary">
-                            Añadir cambios
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div 
-class="modal fade" 
-id="borrarProyModal" 
-tabindex="-1"
-role="dialog" 
-aria-labelledby="borrarProyModalLabel" 
-aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-heder">
-                <h3 class="modal-title" id="borrarProyModalLabel">Borrar Proyecto</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Estas Seguro de borrar {{borraProy?.nombre}}</p>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No
-                    </button>
-                    <button (click)="onDeleteProyecto(borraProy!.id)" class="btn btn-danger"
-                        data-dismiss="modal">Si
-                    </button>
                 </div>
 
+                <div class="col-10 d-none d-md-block"><br></div>
+
+                <div class="col-2 d-flex justify-content-end">
+
+                    <button id="btn-collapsable" type="button" (click)="onOpenModal('edit', proyecto)"
+                        class="btn btn-warning tooltips collapse in" data-toggle="modal" data-target="#editarProyModal"
+                        data-whatever="@fat"><i class="fa fa-pencil-square-o"></i></button>
+                    <button id="btn-collapsable" type="button" (click)="onOpenModal('delete', proyecto)"
+                        class="btn btn-warning tooltips collapse in" data-toggle="modal" data-target="#borrarProyModal"
+                        data-whatever="@getbootstrap"><i class="fa fa-trash"></i></button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="modal fade" id="crearProyModal" tabindex="-1" role="dialog" aria-labelledby="crearProyModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="crearProyModal">Agregar Nuevo Proyecto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form #addForm="ngForm" (ngSubmit)="onAddProyecto(addForm)">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" ngModel name="nombre" class="form-control" id="nombre"
+                                placeholder="Nombre" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="anio">Año</label>
+                            <input type="text" ngModel name="anio" class="form-control" id="anio" placeholder="Año"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Descripcion</label>
+                            <input type="text" ngModel name="descripcion" class="form-control" id="descripcion"
+                                placeholder="Descripcion" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagen1">Imagen 1</label>
+                            <input type="text" ngModel name="imagen1" class="form-control" id="imagen1"
+                                placeholder="Imagen 1" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagen2">Imagen 2</label>
+                            <input type="text" ngModel name="imagen2" class="form-control" id="imagen2"
+                                placeholder="Imagen 2" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagen3">Imagen 3</label>
+                            <input type="text" ngModel name="imagen3" class="form-control" id="imagen3"
+                                placeholder="Imagen 3" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagen4">Imagen 4</label>
+                            <input type="text" ngModel name="imagen4" class="form-control" id="imagen4"
+                                placeholder="Imagen 4" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagen5">Imagen 5</label>
+                            <input type="text" ngModel name="imagen5" class="form-control" id="imagen5"
+                                placeholder="Imagen 5" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagen6">Imagen 6</label>
+                            <input type="text" ngModel name="imagen6" class="form-control" id="imagen6"
+                                placeholder="Imagen 6" />
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" id="add-proyecto-form" class="btn btn-secondary" data-dismiss="modal">
+                                Cerrar
+                            </button>
+
+                            <button [disabled]="addForm.invalid" type="submit" id="add-proyecto-form"
+                                class="btn btn-primary">
+                                Añadir cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+
+
+
+
+
+    <div class="modal fade" id="editarProyModal" tabindex="-1" role="dialog" aria-labelledby="editarProyModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="editarProyModalLabel">
+                        Editar Proyecto {{editaProy?.nombre}} </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form #editForm="ngForm">
+                        <input type="hidden" ngModel="{{editaProy?.id}}" name="id" class="form-control" id="id"
+                            placeholder="" />
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" ngModel="{{editaProy?.nombre}}" name="nombre" class="form-control"
+                                id="nombre" placeholder="Nombre" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="anio">Año</label>
+                            <input type="text" ngModel="{{editaProy?.anio}}" name="anio" class="form-control" id="anio"
+                                placeholder="Año" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Descripcion</label>
+                            <input type="text" ngModel="{{editaProy?.descripcion}}" name="descripcion"
+                                class="form-control" id="descripcion" placeholder="Descripcion" />
+                        </div>
+                        <div class="form-group">
+                            <label for="imagen1">Imagen 1</label>
+                            <input type="text" ngModel="{{editaProy?.imagen1}}" name="imagen1" class="form-control"
+                                id="imagen1" placeholder="Imagen 1" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagen2">Imagen 2</label>
+                            <input type="text" ngModel="{{editaProy?.imagen2}}" name="imagen2" class="form-control"
+                                id="imagen2" placeholder="Imagen 2" required= />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagen3">Imagen 3</label>
+                            <input type="text" ngModel="{{editaProy?.imagen3}}" name="imagen3" class="form-control"
+                                id="imagen3" placeholder="Imagen 3" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagen4">Imagen 4</label>
+                            <input type="text" ngModel="{{editaProy?.imagen4}}" name="imagen4" class="form-control"
+                                id="imagen4" placeholder="Imagen 4" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagen5">Imagen 5</label>
+                            <input type="text" ngModel="{{editaProy?.imagen5}}" name="imagen5" class="form-control"
+                                id="imagen5" placeholder="Imagen 5" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagen6">Imagen 6</label>
+                            <input type="text" ngModel="{{editaProy?.imagen6}}" name="imagen6" class="form-control"
+                                id="imagen6" placeholder="Imagen 6" />
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">
+                                Cerrar
+                            </button>
+
+                            <button (click)="onUpdateProyecto(editForm.value)" type="submit" class="btn btn-primary">
+                                Añadir cambios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="borrarProyModal" tabindex="-1" role="dialog" aria-labelledby="borrarProyModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-heder">
+                    <h3 class="modal-title" id="borrarProyModalLabel">Borrar Proyecto</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Estas Seguro de borrar {{borraProy?.nombre}}</p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No
+                        </button>
+                        <button (click)="onDeleteProyecto(borraProy!.id)" class="btn btn-danger" data-dismiss="modal">Si
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div *ngIf="proyectos?.length ==0" class="col-12">
         <div class="alert alert-info" role="alert">
             <h2 class="alert-heading">No hay proyectos</h2>

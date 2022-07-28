@@ -23,10 +23,10 @@ constructor(private http: HttpClient) { }
   }
 
   public updateSkill(skill: Skill):Observable<Skill>{
-    return this.http.put<Skill>(`${this.apiServerUrl}api/edit/{id}`, skill);
+    return this.http.put<Skill>(`${this.apiServerUrl}api/skill/edit`, skill);
   }
 
-  public deleteSkill(skillId: number):Observable<void>{
+  public deleteSkill(skillId: number):Observable<void>{ 
     return this.http.delete<void>(`${this.apiServerUrl}api/deleteSkill/${skillId}` );
   }
 
@@ -40,7 +40,7 @@ constructor(private http: HttpClient) { }
   }
 
   public updateIdioma(idioma: Idioma):Observable<Idioma>{
-    return this.http.put<Idioma>(`${this.apiServerUrl}api/idioma/edit/{id}`, idioma);
+    return this.http.put<Idioma>(`${this.apiServerUrl}api/idioma/edit`, idioma);
   }
 
   public deleteIdioma(idiomaId: number):Observable<void>{

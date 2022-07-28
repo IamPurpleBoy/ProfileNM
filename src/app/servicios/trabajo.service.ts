@@ -22,7 +22,7 @@ constructor(private http: HttpClient) { }
   }
 
   public updateTrabajo(trabajo: Trabajo):Observable<Trabajo>{
-    return this.http.put<Trabajo>(`${this.apiServerUrl}api/trabajos/edit/{id}`, trabajo);
+    return this.http.put<Trabajo>(`${this.apiServerUrl}api/trabajo/edit`, trabajo);
   }
 
   public deleteTrabajo(trabajoId: number):Observable<void>{

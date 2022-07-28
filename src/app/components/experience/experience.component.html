@@ -1,14 +1,18 @@
 <div class="card mat-card" id="first-card">
     <!--Modal Button-->
     <div class="text-center">
-        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#crearJobModal"
-            data-whatever="@mdo">Agrear Experiencia</button>
+        
+        <button id="btn-collapsable" type="button" class="btn btn-light collapse in" data-toggle="modal" data-target="#crearJobModal">Agrear Experiencia</button>
+    
     </div>
 
     <div class="main-container">
+        <div class="row">
         <h2>Experiencia Laboral</h2>
+        </div>
         <br>
         <br>
+        <hr>
 
         <div *ngFor="let trabajo of trabajos">
             <div class="container">
@@ -27,14 +31,14 @@
                     </div>
 
                     <div class="col-sm-3 col-md-2 d-flex justify-content-center" id="info-contact">
-                        <a href="#job-contact" class="btn btn-outline-dark btn-sm" data-toggle="modal">
+                        <a href="#job-contact" class="btn btn-outline-dark btn-sm" data-toggle="modal" [attr.data-target]="'#contactDataModal'+ trabajo.id">
                             Datos de Contacto</a>
-                        <div class="modal fade" id="job-contact">
+                        <div class="modal fade" [attr.id]="'contactDataModal'+ trabajo.id" id="job-contact">
                             <div class="modal-dialog modal-dialog-centred" role="document">
                                 <div class="modal-content">
                                     <!--header de la ventana-->
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Datos de contacto</h4>
+                                        <h4 class="modal-title" id="contactDataModal">Datos de contacto</h4>
                                         <div class="modal-body">
                                             <h5>Telefono</h5>
                                             <p>{{trabajo.telefono}}</p>
@@ -49,17 +53,20 @@
                     </div>
 
                     <div class="col-xs-2 col-md-4 col-lg-5 d-flex justify-content-sm-end">
-                        <button type="button" (click)="onOpenModal('edit', trabajo)" class="btn btn-warning tooltips"
+                        
+                        <button id="btn-collapsable" type="button" (click)="onOpenModal('edit', trabajo)" class="btn btn-warning tooltips  collapse in"
                             data-toggle="modal" data-target="#editarJobModal" data-whatever="@fat"><i
                                 class="fa fa-pencil-square-o"></i></button>
-                        <button type="button" (click)="onOpenModal('delete', trabajo)" class="btn btn-warning tooltips"
+                        <button id="btn-collapsable" type="button" (click)="onOpenModal('delete', trabajo)" class="btn btn-warning tooltips collapse in"
                             data-toggle="modal" data-target="#borrarJobModal" data-whatever="@getbootstrap"><i
                                 class="fa fa-trash"></i></button>
+                        
                     </div>
                     <div class="col-12"><br></div>
                 </div>
             </div>
         </div>
+        
     </div>
 
     <!--Modal Nuevo Trabajo-->
@@ -153,7 +160,7 @@
                             <input type="text" ngModel="{{editaJob?.empresa}}" name="empresa" class="form-control"
                                 id="empresa" placeholder="Empresa" required />
                         </div>
-                        <input type="hidden" ngModel="{{editaJob?.id}}" name="idEdu" class="form-control" id="idEdu"
+                        <input type="hidden" ngModel="{{editaJob?.id}}" name="id" class="form-control" id="id"
                             placeholder="" />
                         <div class="form-group">
                             <label for="cargo">Cargo</label>

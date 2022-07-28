@@ -9,6 +9,7 @@ import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  isLoggedIn=false;
 form:FormGroup;
   constructor(private formBuilder: FormBuilder, private autenticationService: AutenticacionService, private ruta:Router) { 
   this.form = this.formBuilder.group(
@@ -24,10 +25,12 @@ form:FormGroup;
 }
 
 ngOnInit(): void {
+  
   this.form=this.formBuilder.group({
     email:[''],
     password: [''],
   });
+
 }
 
 get Email(){
@@ -41,6 +44,7 @@ get Password(){
 
 onEnviar(event:Event){
   console.log(this.form.value);
+  this.isLoggedIn=true;
   event.preventDefault;
   this.autenticationService.Loguearse(this.form.value).subscribe(data=>{
     console.log("DATA" + JSON.stringify(data));

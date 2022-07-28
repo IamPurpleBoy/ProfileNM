@@ -1,75 +1,81 @@
 <div class="container-fluid">
     <div class="card mat-card" id="first-card">
-
-        <div id="profile-background"><img src="../../../assets/background2.jpg" alt="background" style=" width:100%;">
         
-        </div>
-        <div id="ap-logo">
-        <div id="ap-logo" class="col-xs-4 col-sm-8 col-md-9 col-lg-10"> 
-            <img class="ap-logo" src="../../../assets/APLogo.png" alt="ApLogo" style=" width:25%;">
-        </div>
-        <div class="col-xs-8 col-sm-4 col-md-3 col-lg-2"></div>
-    </div>
-        <div id="info">
-            <div id="info-img">
-                <div class="row">
+        <div id="user-name" *ngIf="persona">
+            <div id="profile-background"><img src={{persona.background}} alt="background" style=" width:100%;"></div>
 
-                    <div class="col-10 col-sm-7 col-md-8 col-lg-9">
-                        <img class="profile-image" src="../../../assets/Rostro.jpg" alt="myFace" style=" width:20%;">
-                        <a class="btn btn-warning tooltips" data-placement="bottom" data-toogle="tooltip"
-                        data-original-title="Editar">
-                        <i class="fa fa-pencil-square-o"></i>
-                    </a>
-                    </div>
-                    
-                    <div class="col-2 col-sm-5 col-md-4 col-lg-3">
-                        <div id="media-info">
+            <div id="ap-logo">
+                <div id="ap-logo" class="col-xs-4 col-sm-8 col-md-9 col-lg-10">
+                    <img class="ap-logo" src={{persona.logo}} alt="ApLogo" style=" width:25%;">
+                </div>
+                <div class="col-xs-8 col-sm-4 col-md-3 col-lg-2"></div>
+            </div>
 
-                            <a class="btn btn-primary" href="https://www.facebook.com/Nicolas.Emanuel.Martin">
-                                <i class="fab fa-facebook"></i></a>
-                            <a class="btn btn-primary"
-                                href="https://www.linkedin.com/in/nicolas-emanuel-martin-0983a144/">
-                                <i class="fab fa-linkedin"></i></a>
-                            <a class="btn btn-dark" href="https://github.com/IamPurpleBoy">
-                                <i class="fab fa-github-square"></i></a>
-                            <a class="btn btn-success" href="https://api.whatsapp.com/send?phone=3515942504">
-                                <i class="fab fa-whatsapp"></i></a>
-                            <a class="btn btn-outline-dark" href="#">
-                                <i class="fa fa-toggle-on" aria-hidden="true"></i></a>
+            <div id="info">
+                <div id="info-img">
+                    <div class="row">
 
+                        <div class="col-10 col-sm-7 col-md-8 col-lg-9">
+                            <img class="profile-image" src={{persona.foto}} alt="myFace" style=" width:20%;">
+
+                            <button id="btn-collapsable" class="btn btn-warning tooltips collapse in"
+                                data-placement="bottom" data-toogle="tooltip" data-original-title="Editar">
+                                <i class="fa fa-pencil-square-o"></i>
+                            </button>
+                        </div>
+
+                        <div class="col-2 col-sm-5 col-md-4 col-lg-3">
+                            <div id="media-info">
+                                <a class="btn btn-primary" href={{persona.facebook}}>
+                                    <i class="fab fa-facebook"></i></a>
+                                <a class="btn btn-primary" href={{persona.linkedIn}}>
+                                    <i class="fab fa-linkedin"></i></a>
+                                <a class="btn btn-dark" href={{persona.gitHub}}>
+                                    <i class="fab fa-github-square"></i></a>
+                                <a class="btn btn-success" href={{persona.whatsapp}}>
+                                    <i class="fab fa-whatsapp"></i></a>
+                                <a type="button" class="btn btn-outline-dark" *ngIf="!isLoggedIn" data-placement="top"
+                                    title="Ingresar" (click)="onLogin()">
+                                    <i class="fa fa-sign-in" aria-hidden="false"></i></a>
+                                <button id="btn-edit-on" type="button" class="btn btn-outline-dark" *ngIf="isLoggedIn"
+                                    title="Editar" href="#btn-collapsable" data-toggle="collapse"
+                                    aria-controls="button">
+                                    <i class="fa fa-toggle-on" aria-hidden="false"></i></button>
+                                <a type="button" class="btn btn-outline-dark" *ngIf="isLoggedIn" data-placement="top"
+                                    title="Salir" (click)="onLogout()">
+                                    <i class="fa fa-sign-out" aria-hidden="false"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                
-                <div id="info-data">
 
-                    <div class="row">
-                        <div class="col-xs-6 col-lg-5">
-                            <div id="user-name" *ngIf="persona">
-                                <br>
-                                <h2>{{persona.nombre}} {{persona.apellido}}</h2>
-                                <div *ngIf="educacion" id="info-title">{{educacion.titulo}}
-
-                                </div>
-                                <br>
-                                <div id="info-contact" *ngIf="persona">
-
-                                    <div id="modal-contact" class="container-fluid">
-                                        <a href="#contacto" class="btn btn-light btn-sm" data-toggle="modal">Informacion
-                                            de
-                                            contacto</a>
-                                        <div class="modal fade" id="contacto">
-                                            <div class="modal-dialog modal-dialog-centred" role="document">
-                                                <div class="modal-content">
-                                                    <!--header de la ventana-->
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">Datos de contacto</h4>
-                                                        <div class="modal-body">
-                                                            <h5>Telefono</h5>
-                                                            <p>{{persona.telefono}}</p>
-                                                            <h5>e-mail</h5>
-                                                            <p>{{persona.email}}</p>
+                    <div id="info-data">
+                        <div class="row">
+                            <div class="col-xs-6 col-lg-5">
+                                <div id="user-name" *ngIf="persona">
+                                    <br>
+                                    <h2>{{persona.nombre}} {{persona.apellido}}</h2>
+                                    <div *ngIf="educacion" id="info-title">{{educacion.titulo}}
+                                    </div>
+                                    <br>
+                                   
+                                    <div id="info-contact" *ngIf="persona">
+                                        <div id="modal-contact" class="container-fluid">
+                                            <a href="#contacto" class="btn btn-light btn-sm"
+                                                data-toggle="modal">Informacion
+                                                de
+                                                contacto</a>
+                                            <div class="modal fade" id="contacto">
+                                                <div class="modal-dialog modal-dialog-centred" role="document">
+                                                    <div class="modal-content">
+                                                        <!--header de la ventana-->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Datos de contacto</h4>
+                                                            <div class="modal-body">
+                                                                <h5>Telefono</h5>
+                                                                <p>{{persona.telefono}}</p>
+                                                                <h5>e-mail</h5>
+                                                                <p>{{persona.email}}</p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -77,48 +83,133 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br>
                             </div>
-                        
-                            <br>
-                        
-                        </div>
 
-                        <div class="col-xs-6 col-lg-7">
-                            <div *ngIf="trabajo">
-                                <br>
-                                <ul id="info-job">
-                                    <li><a href="#">
-                                        <img
-                                            src="http://hoteldelacaniada.com/wp-content/uploads/2013/03/logo_con_bajada.png">
-                                        <h2>{{trabajo.empresa}}</h2>
-                                    </a></li>
-                                </ul>
-                            </div>    
-                            <div *ngIf="educacion">
-                                <br>
-                                
-                                <ul id="info-edu">
-                                    <li><a href="#">
-                                        <img
-                                            src="https://upc.edu.ar/wp-content/uploads/2015/09/logo_montes_pacheco.png">
-                                        <h2>{{educacion.institucion}}</h2>
-                                    </a></li>
-                                </ul>
+                            <div class="col-xs-6 col-lg-7">
+                                <div *ngIf="trabajo">
+                                    <br>
+                                    
+                                    <ul class="list-inline text-center" id="info-job">
+                                        <li><a href="#">
+                                                <img src={{trabajo.logo}}>
+                                                <h2>{{trabajo.empresa}}</h2>
+                                            </a></li>
+                                    </ul>
+                                </div>
+
+                                <div *ngIf="educacion">
+                                    <br>
+                                    <ul class="list-inline text-center" id="info-edu">
+                                        <li><a href="#">
+                                                <img src={{educacion.logo}}>
+                                                <h2>{{educacion.institucion}}</h2>
+                                            </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10"></div>
+                            <div class="col-2 d-flex justify-content-end">
+                                <button id="btn-collapsable" type="button" (click)="onOpenModal('edit', persona)"
+                                    class="btn btn-warning tooltips collapse in" data-toggle="modal"
+                                    data-target="#editarPersonaModal" data-whatever="@fat"><i
+                                        class="fa fa-pencil-square-o"></i></button>
                             </div>
                         </div>
-                        
-                        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10"></div>
-                        <div class="col-xs-12  col-sm-2 col-md-2 col-lg-2">
-                            <div id="info-actions">
-                                <a class="btn btn-warning tooltips" data-placement="bottom" data-toogle="tooltip"
-                            data-original-title="Editar">
-                            <i class="fa fa-pencil-square-o"></i>
-                        </a>
-                        <a class="btn btn-warning tooltips" data-placement="bottom" data-toogle="tooltip"
-                            data-original-title="Borrar">
-                            <i class="fa fa-trash">
-                            </i>
-                        </a>
+                    </div>
+
+                    <div class="modal fade" id="editarPersonaModal" tabindex="-1" role="dialog"
+                        aria-labelledby="editarPersonaModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="editarPersonaModalLabel">
+                                        Editar Usuario {{editPersona?.nombre}} </h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="modal-body">
+                                    <form #editForm="ngForm">
+                                        <input type="hidden" ngModel="{{editPersona?.id}}" name="id"
+                                            class="form-control" id="id" placeholder="" />
+                                        <div class="form-group">
+                                            <label for="nombre">Nombre</label>
+                                            <input type="text" ngModel="{{editPersona?.nombre}}" name="nombre"
+                                                class="form-control" id="nombre" placeholder="Nombre" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="apellido">Apellido</label>
+                                            <input type="text" ngModel="{{editPersona?.apellido}}" name="apellido"
+                                                class="form-control" id="apellido" placeholder="Apellido" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="telefono">Telefono</label>
+                                            <input type="text" ngModel="{{editPersona?.telefono}}" name="telefono"
+                                                class="form-control" id="telefono" placeholder="Telefono" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">e-Mail</label>
+                                            <input type="text" ngModel="{{editPersona?.email}}" name="email"
+                                                class="form-control" id="imagen1" placeholder="About me" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="aboutMe">About me</label>
+                                            <input type="text" ngModel="{{editPersona?.aboutMe}}" name="aboutMe"
+                                                class="form-control" id="aboutMe" placeholder="Imagen 2" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="background">Background</label>
+                                            <input type="text" ngModel="{{editPersona?.background}}" name="background"
+                                                class="form-control" id="background" placeholder="Background"
+                                                required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="foto">Fotografia</label>
+                                            <input type="text" ngModel="{{editPersona?.foto}}" name="foto"
+                                                class="form-control" id="foto" placeholder="Fotografia" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="logo">Logo</label>
+                                            <input type="text" ngModel="{{editPersona?.logo}}" name="logo"
+                                                class="form-control" id="logo" placeholder="Logo" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="facebook">Facebook</label>
+                                            <input type="text" ngModel="{{editPersona?.facebook}}" name="facebook"
+                                                class="form-control" id="facebook" placeholder="Facebook url" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="linkedIn">LinkedIn</label>
+                                            <input type="text" ngModel="{{editPersona?.linkedIn}}" name="linkedIn"
+                                                class="form-control" id="linkedIn" placeholder="LinkedIn url" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="gitHub">GitHub</label>
+                                            <input type="text" ngModel="{{editPersona?.gitHub}}" name="gitHub"
+                                                class="form-control" id="gitHub" placeholder="Facebook url" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="whatsapp">WhatsApp</label>
+                                            <input type="text" ngModel="{{editPersona?.whatsapp}}" name="whatsapp"
+                                                class="form-control" id="whatsapp"
+                                                placeholder="WhatsApp url+telefono" />
+                                        </div>
+                                        
+                                        <div class="modal-footer">
+                                            <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">
+                                                Cerrar
+                                            </button>
+                                            <button (click)="onUpdatePersona(editForm.value)" type="submit"
+                                                class="btn btn-primary">
+                                                Añadir cambios
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -23,7 +23,7 @@ constructor(private http: HttpClient) { }
   }
 
   public updateEducacion(educacion: Educacion):Observable<Educacion>{
-    return this.http.put<Educacion>(`${this.apiServerUrl}api/educacion/edit/${educacion.idEdu}`, educacion);
+    return this.http.put<Educacion>(`${this.apiServerUrl}api/educacion/edit`, educacion);
   }
 
   public deleteEducacion(educacionId: number):Observable<void>{

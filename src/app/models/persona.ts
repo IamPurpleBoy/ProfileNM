@@ -5,5 +5,12 @@ export interface Persona{
     telefono:string;
     email:string;
     aboutMe: string;
-    password:string;
+    background:string;
+    foto:string;
+    logo:string;
+    facebook:string;
+    linkedIn:string;
+    gitHub:string;
+    whatsapp:string;
+
 }

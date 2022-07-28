@@ -1,6 +1,7 @@
 .container-fluid{
     padding:0%;
 }
+
 .mat-card{
     border-radius: 32px;
     margin: 10px 10px;
@@ -16,22 +17,20 @@
 div#profile-background{
 display: flex;
 z-index: 0;
-
 }
 
 div#profile-background img{
     width: 100%;
-    border-radius: 32px 32px 0 0;
-    
+    border-radius: 32px 32px 0px 0px;  
 }
 
 div#info{
     padding: 15px;
     background-color: ghostwhite;
     border-radius:0 0 32px 32px ;   
-
 }
-.profile-image{
+
+.profile-image2{
     border-top-left-radius: 100%;
     border-top-right-radius: 100%;
     width: 152;
@@ -40,42 +39,40 @@ div#info{
     margin-left: 7%;
     z-index: -1;
     box-shadow: 10px 5px 5px purple;
-    
 }
 
 .ap-logo{
-  
     margin-top: -150px;
     margin-left: 1%;
-    z-index: -1;
-   
-    
+    z-index: -1;    
 }
+
 div#ap-logo{
     align-items:flex-end;
     background-color: ghostwhite;
     z-index: 0;
-    margin-right: 5px;
-    
+    margin-right: 5px;   
 }
+
 div#media-info{
     align-items:flex-end;
     margin-block-end: 50%;
     z-index: 1;
     margin-top: -85px;
     margin-right: 5px;
-    box-shadow: -10px 5px 5px  purple;
-    
- 
-
-
+    box-shadow: -10px 5px 5px  purple;   
 }
 
+div#div-collapsed .button .btn-warning .tooltips {
+    padding-right:10px ;
+    margin-top: -150px;
+    margin-left: 1%;
+    z-index: -1;
+}
 
 div#info-actions {
     display: flex;
-    vertical-align: bottom;
-    
+    vertical-align: bottom; 
 }
 
 div#info-contact span{
@@ -108,18 +105,33 @@ div#modal-contact{
  margin-left: 70px;
 }
 
+.btn-outline-dark:visited{
+    background-color: #44494e;   
+}
+
 .btn-warning{
     color:white;
     background-color: transparent;
     border-radius:100%;
     border-color: blueviolet;
-    padding-right:  2%;
-    
+    margin-top:  15%;    
 }
+
+.btn-warning:hover{
+    background-color:lavender;
+}
+
+.btn-warning:not(:disabled):not(.disabled).active, .btn-warning:not(:disabled):not(.disabled):active{
+    background-color:rgb(144, 144, 204);
+}
+
+.fa.fa-pencil-square-o{
+    color: black;
+}
+
 div#info-data{
     display:flexbox;
-    justify-content:baseline;
-    
+    justify-content:baseline;   
 }
 
 div#user-name h2{
@@ -127,48 +139,45 @@ div#user-name h2{
    font-weight: 500;
    align-self: center;
    vertical-align: baseline;
-
-
 }
 
 div#info-data ul#info-job li a{
     color: black;
     display: flex;
     text-decoration: none;
-
 }
+
 div#info-data ul#info-job li a h2{
    font-size: 1.25rem;
    font-weight: 500;
    align-self: center;
    vertical-align: baseline;
-
 }
+
 div#info-data ul#info-edu li a{
     color: black;
     display: flex;
     text-decoration: none;
-
 }
+
 div#info-data ul#info-edu li a h2{
    font-size: 1.25rem;
    font-weight: 500;
    align-self: center;
    vertical-align: baseline;
-
 }
+
 div#info-data ul#info-job li a img{
     width: 20%;
     height: 20%;
     margin-right: 30px;
- 
- }
+}
+
  div#info-data ul#info-edu li a img{
     width: 20%;
     height: 20%;
     margin-right: 30px;
- 
- }
+}
 
  ul.items-list{
      list-style: "none inside";

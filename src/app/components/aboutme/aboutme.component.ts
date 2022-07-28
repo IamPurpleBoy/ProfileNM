@@ -19,7 +19,7 @@ export class AboutmeComponent implements OnInit {
     this.getPersona();
   }
   public getPersona():void{
-    this.headerService.getPersona().subscribe({
+    this.headerService.getPersona(81).subscribe({
       next:(response:Persona)=>{
         this.persona=response;
       }, 
@@ -29,4 +29,34 @@ export class AboutmeComponent implements OnInit {
     })
   }
 
+  public onOpenModal(mode: String, persona?: Persona): void {
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.style.display = 'none';
+    button.setAttribute('data-toogle', 'modal');
+    
+    if (mode === 'edit') {
+      this.editPersona = persona;
+      button.setAttribute('data-target', '#editarPersonaModal');
+    }
+    container?.appendChild(button);
+    button.click();
+  }
+
+
+  public onUpdatePersona(persona: Persona) {
+    this.editPersona = persona;
+    document.getElementById('edit-persona-form')?.click();
+    this.headerService.updatePersona(persona).subscribe({
+      next: (response: Persona) => {
+        console.log(response);
+        this.getPersona();
+      },
+      error: (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    })
+
+
+}
 }
