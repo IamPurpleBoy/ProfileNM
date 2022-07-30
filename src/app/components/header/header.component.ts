@@ -48,7 +48,7 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-  public getTrabajo(): void {
+    public getTrabajo(): void {
     this.headerService.getTrabajo(2).subscribe({
       next: (response: Trabajo) => {
         this.trabajo = response;
@@ -78,6 +78,9 @@ export class HeaderComponent implements OnInit {
     if (mode === 'edit') {
       this.editPersona = persona;
       button.setAttribute('data-target', '#editarPersonaModal');
+    }else if (mode === 'editFoto') {
+      this.editPersona = persona;
+      button.setAttribute('data-target', '#editarFotoModal');
     }
     container?.appendChild(button);
     button.click();
@@ -95,9 +98,8 @@ export class HeaderComponent implements OnInit {
         alert(error.message);
       }
     })
-
   }
-
+  
   public onLogin() {
     this.router.navigate(['/login'])
   }

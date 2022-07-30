@@ -22,6 +22,11 @@ constructor(private http: HttpClient) { }
       return this.http.put<Persona>(`${this.apiServerUrl}api/persona/edit`, persona);
     
   }
+
+  public updatePersona2(persona: Persona):Observable<Persona>{
+    return this.http.put<Persona>(`${this.apiServerUrl}api/persona/edit`, persona);
+  
+}
   public getTrabajo(id:number):Observable<Trabajo>{
     return this.http.get<Trabajo>(`${this.apiServerUrl}api/trabajos/${id}`);  
   }

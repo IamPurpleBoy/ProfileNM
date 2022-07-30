@@ -37,7 +37,7 @@ export class AboutmeComponent implements OnInit {
     
     if (mode === 'edit') {
       this.editPersona = persona;
-      button.setAttribute('data-target', '#editarPersonaModal');
+      button.setAttribute('data-target', '#editarAboutMeModal');
     }
     container?.appendChild(button);
     button.click();
@@ -46,7 +46,7 @@ export class AboutmeComponent implements OnInit {
 
   public onUpdatePersona(persona: Persona) {
     this.editPersona = persona;
-    document.getElementById('edit-persona-form')?.click();
+    document.getElementById('edit-aboutMe-form')?.click();
     this.headerService.updatePersona(persona).subscribe({
       next: (response: Persona) => {
         console.log(response);

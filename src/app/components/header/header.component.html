@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="card mat-card" id="first-card">
-        
+
         <div id="user-name" *ngIf="persona">
             <div id="profile-background"><img src={{persona.background}} alt="background" style=" width:100%;"></div>
 
@@ -18,10 +18,9 @@
                         <div class="col-10 col-sm-7 col-md-8 col-lg-9">
                             <img class="profile-image" src={{persona.foto}} alt="myFace" style=" width:20%;">
 
-                            <button id="btn-collapsable" class="btn btn-warning tooltips collapse in"
-                                data-placement="bottom" data-toogle="tooltip" data-original-title="Editar">
-                                <i class="fa fa-pencil-square-o"></i>
-                            </button>
+                            <button id="btn-collapsable" type="button" (click)="onOpenModal('editFoto', persona)"
+                                class="btn btn-warning tooltips collapse in" data-toggle="modal"
+                                data-target="#editarFotoModal"><i class="fa fa-pencil-square-o"></i></button>
                         </div>
 
                         <div class="col-2 col-sm-5 col-md-4 col-lg-3">
@@ -57,7 +56,7 @@
                                     <div *ngIf="educacion" id="info-title">{{educacion.titulo}}
                                     </div>
                                     <br>
-                                   
+
                                     <div id="info-contact" *ngIf="persona">
                                         <div id="modal-contact" class="container-fluid">
                                             <a href="#contacto" class="btn btn-light btn-sm"
@@ -89,7 +88,7 @@
                             <div class="col-xs-6 col-lg-7">
                                 <div *ngIf="trabajo">
                                     <br>
-                                    
+
                                     <ul class="list-inline text-center" id="info-job">
                                         <li><a href="#">
                                                 <img src={{trabajo.logo}}>
@@ -113,8 +112,7 @@
                             <div class="col-2 d-flex justify-content-end">
                                 <button id="btn-collapsable" type="button" (click)="onOpenModal('edit', persona)"
                                     class="btn btn-warning tooltips collapse in" data-toggle="modal"
-                                    data-target="#editarPersonaModal" data-whatever="@fat"><i
-                                        class="fa fa-pencil-square-o"></i></button>
+                                    data-target="#editarPersonaModal"><i class="fa fa-pencil-square-o"></i></button>
                             </div>
                         </div>
                     </div>
@@ -123,25 +121,35 @@
                         aria-labelledby="editarPersonaModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                
+
                                 <div class="modal-header">
                                     <h3 class="modal-title" id="editarPersonaModalLabel">
-                                        Editar Usuario {{editPersona?.nombre}} </h3>
+                                        Editar informacion de {{editPersona?.nombre}} {{editPersona?.apellido}} </h3>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                
+
                                 <div class="modal-body">
                                     <form #editForm="ngForm">
                                         <input type="hidden" ngModel="{{editPersona?.id}}" name="id"
                                             class="form-control" id="id" placeholder="" />
+                                        <input type="hidden" ngModel="{{editPersona?.foto}}" name="foto" 
+                                            class="form-control" id="foto" placeholder="" />
+                                        <input type="hidden" ngModel="{{editPersona?.background}}" name="background"
+                                            class="form-control" id="background" placeholder="" />
+                                        <input type="hidden" ngModel="{{editPersona?.aboutMe}}" name="aboutMe"
+                                            class="form-control" id="aboutMe" placeholder="" />
                                         <div class="form-group">
+                                        <input type="hidden" ngModel="{{editPersona?.logo}}" name="logo"
+                                            class="form-control" id="logo" placeholder="" />
+                                        </div>
+                                            <div class="form-group">    
                                             <label for="nombre">Nombre</label>
                                             <input type="text" ngModel="{{editPersona?.nombre}}" name="nombre"
                                                 class="form-control" id="nombre" placeholder="Nombre" required />
                                         </div>
-                                        <div class="form-group">
+                                            <div class="form-group">
                                             <label for="apellido">Apellido</label>
                                             <input type="text" ngModel="{{editPersona?.apellido}}" name="apellido"
                                                 class="form-control" id="apellido" placeholder="Apellido" required />
@@ -154,28 +162,7 @@
                                         <div class="form-group">
                                             <label for="email">e-Mail</label>
                                             <input type="text" ngModel="{{editPersona?.email}}" name="email"
-                                                class="form-control" id="imagen1" placeholder="About me" required />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="aboutMe">About me</label>
-                                            <input type="text" ngModel="{{editPersona?.aboutMe}}" name="aboutMe"
-                                                class="form-control" id="aboutMe" placeholder="Imagen 2" required />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="background">Background</label>
-                                            <input type="text" ngModel="{{editPersona?.background}}" name="background"
-                                                class="form-control" id="background" placeholder="Background"
-                                                required />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="foto">Fotografia</label>
-                                            <input type="text" ngModel="{{editPersona?.foto}}" name="foto"
-                                                class="form-control" id="foto" placeholder="Fotografia" required />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="logo">Logo</label>
-                                            <input type="text" ngModel="{{editPersona?.logo}}" name="logo"
-                                                class="form-control" id="logo" placeholder="Logo" />
+                                                class="form-control" id="imagen1" placeholder="email" required />
                                         </div>
                                         <div class="form-group">
                                             <label for="facebook">Facebook</label>
@@ -198,12 +185,78 @@
                                                 class="form-control" id="whatsapp"
                                                 placeholder="WhatsApp url+telefono" />
                                         </div>
-                                        
+
                                         <div class="modal-footer">
                                             <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">
                                                 Cerrar
                                             </button>
                                             <button (click)="onUpdatePersona(editForm.value)" type="submit"
+                                                class="btn btn-primary">
+                                                Añadir cambios
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="editarFotoModal" tabindex="-1" role="dialog"
+                        aria-labelledby="editarFotoModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="editarFotoModalLabel">
+                                        Editar imagenes de {{editPersona?.nombre}} {{editPersona?.apellido}} </h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form #editForm2="ngForm">
+                                        <input type="hidden" ngModel="{{editPersona?.id}}" name="id"
+                                            class="form-control" id="id" placeholder="" />
+                                        <input type="hidden" ngModel="{{editPersona?.apellido}}" name="apellido"
+                                            class="form-control" id="apellido" placeholder="" />
+                                        <input type="hidden" ngModel="{{editPersona?.nombre}}" name="nombre"
+                                            class="form-control" id="nombre" placeholder="" />
+                                        <input type="hidden" ngModel="{{editPersona?.telefono}}" name="telefono"
+                                            class="form-control" id="telefono" placeholder="" />
+                                        <input type="hidden" ngModel="{{editPersona?.email}}" name="email"
+                                            class="form-control" id="email" placeholder="" />
+                                        <input type="hidden" ngModel="{{editPersona?.aboutMe}}" name="aboutMe"
+                                            class="form-control" id="aboutMe" placeholder="" />
+                                        <input type="hidden" ngModel="{{editPersona?.facebook}}" name="facebook"
+                                            class="form-control" id="facebook" placeholder="" />
+                                        <input type="hidden" ngModel="{{editPersona?.linkedIn}}" name="linkedIn"
+                                            class="form-control" id="linkedIn" placeholder="" />
+                                        <input type="hidden" ngModel="{{editPersona?.gitHub}}" name="gitHub"
+                                            class="form-control" id="gitHub" placeholder="" />
+                                        <input type="hidden" ngModel="{{editPersona?.whatsapp}}" name="whatsapp"
+                                            class="form-control" id="whatsapp" placeholder="" />
+                                            <div class="form-group">
+                                                <label for="background">Background</label>
+                                                <input type="text" ngModel="{{editPersona?.background}}" name="background"
+                                                    class="form-control" id="background" placeholder="Background"
+                                                    required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="foto">Fotografia</label>
+                                                <input type="text" ngModel="{{editPersona?.foto}}" name="foto"
+                                                    class="form-control" id="foto" placeholder="Fotografia" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="logo">Logo</label>
+                                                <input type="text" ngModel="{{editPersona?.logo}}" name="logo"
+                                                    class="form-control" id="logo" placeholder="Logo" required/>
+                                            </div>
+                                        <div class="modal-footer">
+                                            <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">
+                                                Cerrar
+                                            </button>
+                                            <button (click)="onUpdatePersona(editForm2.value)" type="submit"
                                                 class="btn btn-primary">
                                                 Añadir cambios
                                             </button>

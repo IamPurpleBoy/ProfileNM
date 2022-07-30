@@ -106,19 +106,24 @@
 
                 <div class="col-10 d-none d-md-block"><br></div>
 
-                <div class="col-2 d-flex justify-content-end">
+                <div class="row">
+                    <div class="col-auto mr-auto"></div>
 
-                    <button id="btn-collapsable" type="button" (click)="onOpenModal('edit', proyecto)"
-                        class="btn btn-warning tooltips collapse in" data-toggle="modal" data-target="#editarProyModal"
-                        data-whatever="@fat"><i class="fa fa-pencil-square-o"></i></button>
-                    <button id="btn-collapsable" type="button" (click)="onOpenModal('delete', proyecto)"
-                        class="btn btn-warning tooltips collapse in" data-toggle="modal" data-target="#borrarProyModal"
-                        data-whatever="@getbootstrap"><i class="fa fa-trash"></i></button>
+                    <div class="col-auto">
 
+                        <button id="btn-collapsable" type="button" (click)="onOpenModal('edit', proyecto)"
+                            class="btn btn-warning tooltips collapse in" data-toggle="modal"
+                            data-target="#editarProyModal" data-whatever="@fat"><i
+                                class="fa fa-pencil-square-o"></i></button>
+                        <button id="btn-collapsable" type="button" (click)="onOpenModal('delete', proyecto)"
+                            class="btn btn-warning tooltips collapse in" data-toggle="modal"
+                            data-target="#borrarProyModal" data-whatever="@getbootstrap"><i
+                                class="fa fa-trash"></i></button>
+
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 
 
