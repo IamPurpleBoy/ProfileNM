@@ -49,7 +49,7 @@
 
                     <div id="info-data">
                         <div class="row">
-                            <div class="col-xs-6 col-lg-5">
+                            <div class="col-xs-6 col-lg-7">
                                 <div id="user-name" *ngIf="persona">
                                     <br>
                                     <h2>{{persona.nombre}} {{persona.apellido}}</h2>
@@ -85,12 +85,13 @@
                                 <br>
                             </div>
 
-                            <div class="col-xs-6 col-lg-7">
+                            <div class="col-xs-6 col-lg-5">
                                 <div *ngIf="trabajo">
                                     <br>
 
                                     <ul class="list-inline text-center" id="info-job">
-                                        <li><a href="#">
+                                        <li>
+                                            <a>
                                                 <img src={{trabajo.logo}}>
                                                 <h2>{{trabajo.empresa}}</h2>
                                             </a></li>
@@ -100,7 +101,8 @@
                                 <div *ngIf="educacion">
                                     <br>
                                     <ul class="list-inline text-center" id="info-edu">
-                                        <li><a href="#">
+                                        <li>
+                                            <a>
                                                 <img src={{educacion.logo}}>
                                                 <h2>{{educacion.institucion}}</h2>
                                             </a></li>

@@ -49,6 +49,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
       responsive: true,
       outerStrokeWidth:4, 
       showInnerStroke: false,
+      showSubtitle: false,
       innerStrokeWidth:8,
       outerStrokeColor:'white',
       innerStrokeColor:'purple',

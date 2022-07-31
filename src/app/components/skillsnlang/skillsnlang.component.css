@@ -7,6 +7,7 @@
     margin: 10px 10px;
     padding: 20px;
     border-color: blueviolet;
+    background-color: rgb(191, 191, 240);
     box-shadow: 5px 5px 10px #7a2576;
 }
 
@@ -26,8 +27,22 @@
 
 div#skills{
     margin-left: 50%;
+    
+}
+
+div#skills h4{
+    color: ghostwhite;
+    
 }
 
 div#idiomas{
     margin-left:5%
+}
+
+div#idiomas h4{
+    color: ghostwhite;
+}
+
+div#titulos h2{
+    color: ghostwhite;
 }
