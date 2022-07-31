@@ -9,7 +9,7 @@ import { Proyecto } from "../models/proyecto";
     providedIn: 'root'
 })
 export class ProyectoService{
-private apiServerUrl=environment.apiBaseUrl;
+private apiServerUrl="https://nicolas-martin-ap.herokuapp.com/";
   
 constructor(private http: HttpClient) { }
  

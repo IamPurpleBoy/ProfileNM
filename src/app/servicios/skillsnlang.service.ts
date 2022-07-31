@@ -9,7 +9,7 @@ import { Skill } from "src/app/models/skill";
     providedIn: 'root'
 })
 export class SkillsNLangService{
-private apiServerUrl=environment.apiBaseUrl;
+private apiServerUrl="https://nicolas-martin-ap.herokuapp.com/";
   
 constructor(private http: HttpClient) { }
  

@@ -10,7 +10,7 @@ import { Educacion } from "../models/educacion";
     providedIn: 'root'
 })
 export class HeaderService{
-private apiServerUrl=environment.apiBaseUrl;
+private apiServerUrl="https://nicolas-martin-ap.herokuapp.com/";
   
 constructor(private http: HttpClient) { }
  

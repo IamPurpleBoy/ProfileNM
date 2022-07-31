@@ -9,7 +9,7 @@ import { Usuario } from "../models/usuario"
 })
 export class UsuarioService {
 
-  private apiServerUrl:string=environment.apiBaseUrl
+  private apiServerUrl:string="https://nicolas-martin-ap.herokuapp.com/"
   constructor(private http:HttpClient) { }
 
   getUsuario(id:number):Observable<Usuario>{

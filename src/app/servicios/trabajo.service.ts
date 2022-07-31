@@ -8,7 +8,7 @@ import {  Trabajo } from "../models/trabajo";
     providedIn: 'root'
 })
 export class TrabajoService{
-private apiServerUrl=environment.apiBaseUrl;
+private apiServerUrl="https://nicolas-martin-ap.herokuapp.com/";
   
 constructor(private http: HttpClient) { }
  
