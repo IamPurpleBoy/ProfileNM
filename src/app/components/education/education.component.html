@@ -3,13 +3,13 @@
     <div class="text-center">
 
         <button id="btn-collapsable" type="button" class="btn btn-light collapse in" data-toggle="modal"
-            data-target="#crearEduModal" data-whatever="@mdo">Agrear Educacion</button>
+            data-target="#crearEduModal" data-whatever="@mdo">Agregar Educación</button>
 
     </div>
 
     <div id="main-container">
         <div class="row">
-            <h2>Educacion</h2>
+            <h2>Educación</h2>
             </div>
             <br>
             <br>
@@ -58,13 +58,13 @@
     </div>
 
 
-    <!--Modal Nueva Educacion-->
+    <!--Modal Nueva Educación-->
     <div class="modal fade" id="crearEduModal" tabindex="-1" role="dialog" aria-labelledby="crearEduModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="crearEduModal">Agregar Nueva Educacion</h5>
+                    <h5 class="modal-title" id="crearEduModal">Agregar Nueva Educación</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -72,12 +72,12 @@
                 <div class="modal-body">
                     <form #addForm="ngForm" (ngSubmit)="onAddEducacion(addForm)">
                         <div class="form-group">
-                            <label for="institucion">Institucion</label>
+                            <label for="institucion">Institución</label>
                             <input type="text" ngModel name="institucion" class="form-control" id="institucion"
                                 placeholder="Institucion" required />
                         </div>
                         <div class="form-group">
-                            <label for="titulo">Titulo</label>
+                            <label for="titulo">Título</label>
                             <input type="text" ngModel name="titulo" class="form-control" id="titulo"
                                 placeholder="Titulo" required />
                         </div>
@@ -93,7 +93,7 @@
                                 placeholder="anoFin" required />
                         </div>
                         <div class="form-group">
-                            <label for="descripcion">Descripcion</label>
+                            <label for="descripcion">Descripción</label>
                             <input type="text" ngModel name="descripcion" class="form-control" id="descripcion"
                                 placeholder="Descripcion" required />
                         </div>
@@ -131,14 +131,14 @@
 
 
 
-    <!--Modal Editar Educacion-->
+    <!--Modal Editar Educación-->
     <div class="modal fade" id="editarEduModal" tabindex="-1" role="dialog" aria-labelledby="editarEducacionModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title" id="editarEduModalLabel">
-                        Editar Educacion {{editaEdu?.institucion}} </h3>
+                        Editar Educación {{editaEdu?.institucion}} </h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -146,14 +146,14 @@
                 <div class="modal-body">
                     <form #editForm="ngForm">
                         <div class="form-group">
-                            <label for="institucion">Institucion</label>
+                            <label for="institucion">Institución</label>
                             <input type="text" ngModel="{{editaEdu?.institucion}}" name="institucion"
                                 class="form-control" id="institucion" placeholder="Institucion" required />
                         </div>
                         <input type="hidden" ngModel="{{editaEdu?.idEdu}}" name="idEdu" class="form-control" id="idEdu"
                             placeholder="" />
                         <div class="form-group">
-                            <label for="titulo">Titulo</label>
+                            <label for="titulo">Título</label>
                             <input type="text" ngModel="{{editaEdu?.titulo}}" name="titulo" class="form-control"
                                 id="titulo" placeholder="Titulo" />
                         </div>
@@ -170,7 +170,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="descripcion">Descripcion</label>
+                            <label for="descripcion">Descripción</label>
                             <input type="text" ngModel="{{editaEdu?.descripcion}}" name="descripcion"
                                 class="form-control" id="descripcion" placeholder="Descripcion" />
                         </div>
@@ -203,13 +203,13 @@
         </div>
     </div>
 
-    <!--Modal Borrar Educacion-->
+    <!--Modal Borrar Educación-->
     <div class="modal fade" id="borrarEduModal" tabindex="-1" role="dialog" aria-labelledby="borrarEduModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-heder">
-                    <h3 class="modal-title" id="borrarEduModalLabel">Borrar Educacion</h3>
+                    <h3 class="modal-title" id="borrarEduModalLabel">Borrar Educación</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -230,8 +230,8 @@
     </div>
     <div *ngIf="educaciones?.length ==0" class="col-12">
         <div class="alert alert-info" role="alert">
-            <h2 class="alert-heading">No hay educacion</h2>
-            <p>No se encuentra nicnguna educacion cargada!</p>
+            <h2 class="alert-heading">No hay educación</h2>
+            <p>No se encuentra ninguna educación cargada!</p>
         </div>
     </div>
 </div>

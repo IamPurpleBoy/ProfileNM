@@ -60,7 +60,7 @@
                                     <div id="info-contact" *ngIf="persona">
                                         <div id="modal-contact" class="container-fluid">
                                             <a href="#contacto" class="btn btn-light btn-sm"
-                                                data-toggle="modal">Informacion
+                                                data-toggle="modal">Información
                                                 de
                                                 contacto</a>
                                             <div class="modal fade" id="contacto">
@@ -70,7 +70,7 @@
                                                         <div class="modal-header">
                                                             <h4 class="modal-title">Datos de contacto</h4>
                                                             <div class="modal-body">
-                                                                <h5>Telefono</h5>
+                                                                <h5>Teléfono</h5>
                                                                 <p>{{persona.telefono}}</p>
                                                                 <h5>e-mail</h5>
                                                                 <p>{{persona.email}}</p>
@@ -126,7 +126,7 @@
 
                                 <div class="modal-header">
                                     <h3 class="modal-title" id="editarPersonaModalLabel">
-                                        Editar informacion de {{editPersona?.nombre}} {{editPersona?.apellido}} </h3>
+                                        Editar información de {{editPersona?.nombre}} {{editPersona?.apellido}} </h3>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -157,7 +157,7 @@
                                                 class="form-control" id="apellido" placeholder="Apellido" required />
                                         </div>
                                         <div class="form-group">
-                                            <label for="telefono">Telefono</label>
+                                            <label for="telefono">Teléfono</label>
                                             <input type="text" ngModel="{{editPersona?.telefono}}" name="telefono"
                                                 class="form-control" id="telefono" placeholder="Telefono" required />
                                         </div>
