@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { environment } from "src/environments/environment";
+import { environment } from "src/environments/environment.prod";
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PortfolioService {
-  url:string="https://nicolas-martin-ap.herokuapp.com/"
+  url:string="https://api-portfolio-production-204e.up.railway.app/"
   constructor(private http:HttpClient) { }
 
   obtenerDatos():Observable<any>{

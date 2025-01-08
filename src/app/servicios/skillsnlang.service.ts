@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { environment } from "src/environments/environment";
+import { environment } from "src/environments/environment.prod";
 import { Idioma } from "src/app/models/idioma";
 import { Skill } from "src/app/models/skill";
 
@@ -9,7 +9,7 @@ import { Skill } from "src/app/models/skill";
     providedIn: 'root'
 })
 export class SkillsNLangService{
-private apiServerUrl="https://nicolas-martin-ap.herokuapp.com/";
+private apiServerUrl=environment.URL;
   
 constructor(private http: HttpClient) { }
  
